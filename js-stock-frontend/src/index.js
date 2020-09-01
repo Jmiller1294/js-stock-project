@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
         login();
-        searchBar();
+        
         // getUser();
         // getStocks();
     })
@@ -42,24 +42,24 @@ function login(){
     })
     
 
-    
+    searchBar();
 }
 
 
 function showStock(data){
     const main = document.querySelector('main')
-    const div = document.getElementById('stockContainer')
+    const div = document.getElementById('searchContainer')
     console.log(div)
 
     const d = document.createElement('div')
     const p = document.createElement('p')
     const buyStock = document.createElement('form')
-    buyStock.id = "buy-stock"
     const input = document.createElement('input')
     const submit = document.createElement('input')
     input.setAttribute("type", "text")
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Buy Stock")
+    submit.id = "buy-button"
     
             p.innerText = `Ticker: ${data.ticker}
                            Company: ${data.company}
@@ -71,22 +71,23 @@ function showStock(data){
             buyStock.appendChild(submit)
             div.appendChild(buyStock)
 
-            const buyButton = document.getElementById('buy-stock')
+            const buyButton = document.getElementById('buy-button')
             buyButton.addEventListener('click', function(event){
             event.preventDefault()
 
             console.log(data)
-            let newObj = {}
-            newData = Object.Assign{{}, obj}
+            let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: 1, market_value: 300, user_id: data.user_id}
+            let newData = Object.assign({}, newObj)
         
             fetch('http://localhost:3000/stocks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(d)
+            body: JSON.stringify(newData)
         })
         .then(response => response.json())
+        .then(data => getStocks(data))
     })
 }
 
@@ -158,22 +159,22 @@ function getUser(){
 //    }
 // }
 
-function getStock(stock){
-    fetch(`http://localhost:3000/stocks`)
+function getStocks(data){
+    fetch(`http://localhost:3000/users/${data.user_id}`)
     .then(response => response.json())
     .then(data => stock(data))
 
     
     const main = document.querySelector('main')
-    const div = document.getElementById('stockContainer')
+    const div = document.getElementById('stockcontainer')
    
 
     function stock(data) {
-        let stocks = data.map(stock => {
-
+        let stocks = data.stocks.map(stock => {
+            
             
        
-            
+            console.log(stock)
             
             
             
@@ -254,7 +255,6 @@ setInterval(function(){updateChart()}, 1000);
 
 }
     
-
 }
 
 
