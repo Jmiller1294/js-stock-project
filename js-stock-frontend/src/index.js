@@ -52,14 +52,24 @@ function showStock(data){
     console.log(div)
 
     const d = document.createElement('div')
-const p = document.createElement('p')
+    const p = document.createElement('p')
+    const buyStock = document.createElement('form')
+    buyStock.id = "buy-stock"
+    const input = document.createElement('input')
+    const submit = document.createElement('input')
+    input.setAttribute("type", "text")
+    submit.setAttribute("type", "submit")
+    submit.setAttribute("value", "Buy Stock")
+    
             p.innerText = `Ticker: ${data.ticker}
                            Company: ${data.company}
-                           Current Price: ${data.current_price}
-                           Shares: ${data.shares}
-                           Market Value: ${data.market_value}` 
+                           Current Price: ${data.current_price}`
+            
             div.appendChild(d)
             div.appendChild(p)
+            buyStock.appendChild(input)
+            buyStock.appendChild(submit)
+            div.appendChild(buyStock)
 
 }
 
