@@ -5837,3 +5837,1394 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 66ms (Views: 38.8ms | ActiveRecord: 4.3ms | Allocations: 15410)
 
 
+Started GET "/users/1" for ::1 at 2020-09-01 02:18:44 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 67ms (Views: 39.2ms | ActiveRecord: 4.5ms | Allocations: 15410)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:12:24 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 990)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:12:27 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 935)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:12:59 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 935)
+
+
+Started GET "/users/1" for ::1 at 2020-09-01 03:13:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 2090)
+
+
+Started GET "/users/1" for ::1 at 2020-09-01 03:13:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 2023)
+
+
+Started GET "/users/1" for ::1 at 2020-09-01 03:13:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 2041)
+
+
+Started GET "/users/1" for ::1 at 2020-09-01 03:13:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 2023)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:13:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:13:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:13:53 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 1.0ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:13:54 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 917)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:13:54 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:13:54 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.3ms | Allocations: 919)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:14:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:15:51 -0400
+Started GET "/stocks" for ::1 at 2020-09-01 03:15:51 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1002)
+
+
+Processing by StocksController#index as */*
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 1269)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:16:11 -0400
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2020-09-01 03:16:30 -0400
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-09-01 03:16:38 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 915)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:16:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:16:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:16:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:16:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:16:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 916)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:17:22 -0400
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2020-09-01 03:25:16 -0400
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2020-09-01 03:25:36 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"[object HTMLInputElement]", "user"=>{"username"=>"[object HTMLInputElement]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "[object HTMLInputElement]"], ["created_at", "2020-09-01 07:25:36.221096"], ["updated_at", "2020-09-01 07:25:36.221096"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 6.1ms | Allocations: 5378)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:25:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1080)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:26:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 1038)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:26:24 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"[object HTMLInputElement]", "user"=>{"username"=>"[object HTMLInputElement]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "[object HTMLInputElement]"], ["created_at", "2020-09-01 07:26:24.280587"], ["updated_at", "2020-09-01 07:26:24.280587"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2475)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:26:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1141)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:26:44 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1122)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:26:52 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"[object HTMLInputElement]", "user"=>{"username"=>"[object HTMLInputElement]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "[object HTMLInputElement]"], ["created_at", "2020-09-01 07:26:52.120717"], ["updated_at", "2020-09-01 07:26:52.120717"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2490)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:26:55 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1226)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:27:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 1229)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:27:10 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1226)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:27:10 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1228)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:30:47 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"[object HTMLInputElement]", "user"=>{"username"=>"[object HTMLInputElement]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "[object HTMLInputElement]"], ["created_at", "2020-09-01 07:30:47.312860"], ["updated_at", "2020-09-01 07:30:47.312860"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 2473)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:30:56 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1329)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:31:37 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"[object HTMLInputElement]", "user"=>{"username"=>"[object HTMLInputElement]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "[object HTMLInputElement]"], ["created_at", "2020-09-01 07:31:37.450145"], ["updated_at", "2020-09-01 07:31:37.450145"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2471)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:31:50 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"[object HTMLInputElement]", "user"=>{"username"=>"[object HTMLInputElement]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "[object HTMLInputElement]"], ["created_at", "2020-09-01 07:31:50.863811"], ["updated_at", "2020-09-01 07:31:50.863811"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2471)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:32:54 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:32:54.169207"], ["updated_at", "2020-09-01 07:32:54.169207"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2473)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:33:34 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:33:34.665406"], ["updated_at", "2020-09-01 07:33:34.665406"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 2.3ms | Allocations: 2469)
+
+
+Started GET "/users" for ::1 at 2020-09-01 03:33:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 1737)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:36:43 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:36:43.474668"], ["updated_at", "2020-09-01 07:36:43.474668"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 2.9ms | Allocations: 2435)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:37:00 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:37:00.960608"], ["updated_at", "2020-09-01 07:37:00.960608"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:43:00 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:43:01.008714"], ["updated_at", "2020-09-01 07:43:01.008714"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 5.5ms | Allocations: 5376)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:43:06 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:43:06.575241"], ["updated_at", "2020-09-01 07:43:06.575241"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:43:29 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:43:29.625101"], ["updated_at", "2020-09-01 07:43:29.625101"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:43:48 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:43:48.599453"], ["updated_at", "2020-09-01 07:43:48.599453"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:44:35 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:44:35.848807"], ["updated_at", "2020-09-01 07:44:35.848807"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:44:45 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:44:45.743656"], ["updated_at", "2020-09-01 07:44:45.743656"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 2493)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:45:35 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 07:45:35.129306"], ["updated_at", "2020-09-01 07:45:35.129306"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:47:00 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"amma841", "user"=>{"username"=>"amma841"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "amma841"], ["created_at", "2020-09-01 07:47:00.673799"], ["updated_at", "2020-09-01 07:47:00.673799"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:50:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:50:04.161477"], ["updated_at", "2020-09-01 07:50:04.161477"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:51:47 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:51:47.898392"], ["updated_at", "2020-09-01 07:51:47.898392"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:51:50 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:51:50.351507"], ["updated_at", "2020-09-01 07:51:50.351507"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 3.1ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:52:02 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 07:52:02.512290"], ["updated_at", "2020-09-01 07:52:02.512290"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 2.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:53:08 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:53:08.890788"], ["updated_at", "2020-09-01 07:53:08.890788"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 6.7ms | Allocations: 2471)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:53:12 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:53:12.336321"], ["updated_at", "2020-09-01 07:53:12.336321"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:53:45 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:53:45.075885"], ["updated_at", "2020-09-01 07:53:45.075885"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 2.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:53:45 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:53:45.752490"], ["updated_at", "2020-09-01 07:53:45.752490"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 3.4ms | Allocations: 2435)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:55:11 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (5.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 07:55:11.778742"], ["updated_at", "2020-09-01 07:55:11.778742"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 8.2ms | Allocations: 2473)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:55:18 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:55:18.535588"], ["updated_at", "2020-09-01 07:55:18.535588"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:55:59 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:55:59.792849"], ["updated_at", "2020-09-01 07:55:59.792849"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:56:03 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 07:56:03.351375"], ["updated_at", "2020-09-01 07:56:03.351375"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:56:22 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:56:22.825736"], ["updated_at", "2020-09-01 07:56:22.825736"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:57:15 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:57:15.609409"], ["updated_at", "2020-09-01 07:57:15.609409"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:57:41 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:57:41.609193"], ["updated_at", "2020-09-01 07:57:41.609193"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 2435)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:58:50 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:58:50.169848"], ["updated_at", "2020-09-01 07:58:50.169848"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:59:32 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 07:59:32.513386"], ["updated_at", "2020-09-01 07:59:32.513386"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2435)
+
+
+Started POST "/users" for ::1 at 2020-09-01 03:59:41 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 07:59:41.535660"], ["updated_at", "2020-09-01 07:59:41.535660"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:00:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"amma841", "user"=>{"username"=>"amma841"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "amma841"], ["created_at", "2020-09-01 08:00:04.073343"], ["updated_at", "2020-09-01 08:00:04.073343"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:00:28 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:00:28.169342"], ["updated_at", "2020-09-01 08:00:28.169342"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2435)
+
+
+Started GET "/users" for ::1 at 2020-09-01 04:00:38 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 4812)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:01:08 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:01:08.249257"], ["updated_at", "2020-09-01 08:01:08.249257"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:01:31 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:01:31.185272"], ["updated_at", "2020-09-01 08:01:31.185272"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:01:57 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:01:57.369669"], ["updated_at", "2020-09-01 08:01:57.369669"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:02:16 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:02:16.235293"], ["updated_at", "2020-09-01 08:02:16.235293"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 5376)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:02:59 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:02:59.049729"], ["updated_at", "2020-09-01 08:02:59.049729"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 2452)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:03:25 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:03:25.817396"], ["updated_at", "2020-09-01 08:03:25.817396"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.7ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:03:26 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:03:26.399781"], ["updated_at", "2020-09-01 08:03:26.399781"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:03:54 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"sylvster2000", "user"=>{"username"=>"sylvster2000"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "sylvster2000"], ["created_at", "2020-09-01 08:03:54.489630"], ["updated_at", "2020-09-01 08:03:54.489630"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2471)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:04:38 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:04:38.329628"], ["updated_at", "2020-09-01 08:04:38.329628"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:04:49 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:04:49.616552"], ["updated_at", "2020-09-01 08:04:49.616552"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2471)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:05:03 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:05:03.560232"], ["updated_at", "2020-09-01 08:05:03.560232"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:05:44 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"", "user"=>{"username"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", ""], ["created_at", "2020-09-01 08:05:44.153818"], ["updated_at", "2020-09-01 08:05:44.153818"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:05:45 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:05:45.767688"], ["updated_at", "2020-09-01 08:05:45.767688"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:05:57 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:05:57.743797"], ["updated_at", "2020-09-01 08:05:57.743797"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:10:15 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:10:15.762366"], ["updated_at", "2020-09-01 08:10:15.762366"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:11:06 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:11:06.825359"], ["updated_at", "2020-09-01 08:11:06.825359"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 4.6ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:11:23 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:11:23.312734"], ["updated_at", "2020-09-01 08:11:23.312734"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 2.8ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:11:41 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:11:41.096558"], ["updated_at", "2020-09-01 08:11:41.096558"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:11:47 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:11:47.552630"], ["updated_at", "2020-09-01 08:11:47.552630"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:11:54 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:11:54.224231"], ["updated_at", "2020-09-01 08:11:54.224231"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:14:01 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:14:01.515362"], ["updated_at", "2020-09-01 08:14:01.515362"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2473)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:16:38 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:16:38.441475"], ["updated_at", "2020-09-01 08:16:38.441475"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:17:29 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:17:29.969935"], ["updated_at", "2020-09-01 08:17:29.969935"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 2435)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:19:03 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:19:03.987333"], ["updated_at", "2020-09-01 08:19:03.987333"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.1ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:19:46 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:19:46.401606"], ["updated_at", "2020-09-01 08:19:46.401606"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:20:03 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"amma841", "user"=>{"username"=>"amma841"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "amma841"], ["created_at", "2020-09-01 08:20:03.968333"], ["updated_at", "2020-09-01 08:20:03.968333"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2469)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:20:32 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:20:33.019630"], ["updated_at", "2020-09-01 08:20:33.019630"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 5376)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:21:17 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:21:17.346256"], ["updated_at", "2020-09-01 08:21:17.346256"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 2452)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:25:16 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:25:16.802408"], ["updated_at", "2020-09-01 08:25:16.802408"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:26:44 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:26:44.978716"], ["updated_at", "2020-09-01 08:26:44.978716"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:27:23 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:27:23.178473"], ["updated_at", "2020-09-01 08:27:23.178473"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 2488)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:27:48 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:27:48.402557"], ["updated_at", "2020-09-01 08:27:48.402557"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2472)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:28:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Jay1294", "user"=>{"username"=>"Jay1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jay1294"], ["created_at", "2020-09-01 08:28:04.136767"], ["updated_at", "2020-09-01 08:28:04.136767"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2471)
+
+
+Started GET "/users" for ::1 at 2020-09-01 04:28:33 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 8146)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:28:35 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:28:35.512130"], ["updated_at", "2020-09-01 08:28:35.512130"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 2469)
+
+
+Started GET "/users" for ::1 at 2020-09-01 04:28:40 -0400
+Started GET "/stocks" for ::1 at 2020-09-01 04:28:40 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.3ms | Allocations: 8204)
+
+
+Processing by StocksController#index as */*
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:4:in `index'
+Completed 200 OK in 36ms (Views: 18.3ms | ActiveRecord: 3.6ms | Allocations: 8114)
+
+
+Started POST "/users" for ::1 at 2020-09-01 04:28:42 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-01 08:28:42.257642"], ["updated_at", "2020-09-01 08:28:42.257642"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 2474)
+
+

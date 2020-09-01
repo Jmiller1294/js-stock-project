@@ -8,4 +8,9 @@ class UsersController < ApplicationController
         user = User.find_by(id: params[:id])
         render json: user, include: [:stocks]
     end
+
+    def create 
+       user = User.create(username: params[:username])
+       render json: user
+    end
 end

@@ -1,15 +1,55 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    if(login() === true) {
-        getUser();
-        getStocks();
-    }
+        login();
+        // getUser();
+        // getStocks();
+    })
    
-})
+
+
+
+    function hideForm(){
+        const loginForm = document.getElementById('login-form')
+        loginForm.style.display = 'none';
+    }
+
 
 function login(){
+    const loginForm = document.getElementById('login-form')
+    const loginButton = document.getElementById('login-button')
+    
 
-    return false
+    loginButton.addEventListener('click', function(event){
+        event.preventDefault()
+        const username = document.getElementById('username-field').value
+        usernameObject = {username: username}
+
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(usernameObject)
+        })
+        .then(response => response.json())
+        .then(function(user){
+            
+            loginForm.style.visibility = 'hidden'
+            const body = document.querySelector('body')
+            const h1 = document.createElement('h1')
+            h1.innerText = `Welcome, ${user.username}`
+            body.append(h1)
+        })
+        
+    
+
+    
+    
+    })
+    
+
+    
 }
+
 
 
 function searchBar(){
