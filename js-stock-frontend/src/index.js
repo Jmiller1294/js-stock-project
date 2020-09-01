@@ -71,6 +71,23 @@ function showStock(data){
             buyStock.appendChild(submit)
             div.appendChild(buyStock)
 
+            const buyButton = document.getElementById('buy-stock')
+            buyButton.addEventListener('click', function(event){
+            event.preventDefault()
+
+            console.log(data)
+            let newObj = {}
+            newData = Object.Assign{{}, obj}
+        
+            fetch('http://localhost:3000/stocks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(d)
+        })
+        .then(response => response.json())
+    })
 }
 
 
