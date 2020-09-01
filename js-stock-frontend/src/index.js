@@ -1,16 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => {
         login();
+        searchBar();
         // getUser();
         // getStocks();
     })
    
 
-
-
-    function hideForm(){
-        const loginForm = document.getElementById('login-form')
-        loginForm.style.display = 'none';
-    }
 
 
 function login(){
@@ -51,10 +46,45 @@ function login(){
 }
 
 
+function showStock(data){
+    const main = document.querySelector('main')
+    const div = document.getElementById('stockContainer')
+    console.log(div)
 
-function searchBar(){
+    const d = document.createElement('div')
+const p = document.createElement('p')
+            p.innerText = `Ticker: ${data.ticker}
+                           Company: ${data.company}
+                           Current Price: ${data.current_price}
+                           Shares: ${data.shares}
+                           Market Value: ${data.market_value}` 
+            div.appendChild(d)
+            div.appendChild(p)
+
+}
+
+
+
+
+
+function searchBar(){       
+
+const searchButton = document.getElementById('search-button')
+searchButton.addEventListener('click', function(event){
+    const searchBar = document.getElementById('searchbar').value
+    event.preventDefault()
+    
+    fetch(`http://localhost:3000/stocks`)
+    .then(response => response.json())
+    .then(function(data){
+        const a = data.find(e => e.ticker === searchBar)
+        showStock(a)
+    })
+    
+})
     
 }
+
 
 
 
@@ -101,8 +131,8 @@ function getUser(){
 //    }
 // }
 
-function getStocks(){
-    fetch('http://localhost:3000/stocks')
+function getStock(stock){
+    fetch(`http://localhost:3000/stocks`)
     .then(response => response.json())
     .then(data => stock(data))
 
