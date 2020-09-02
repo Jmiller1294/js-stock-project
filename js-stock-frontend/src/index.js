@@ -33,6 +33,7 @@ function login(){
             const h1 = document.createElement('h1')
             h1.innerText = `Welcome, ${user.username}`
             body.append(h1)
+            getStocks();
         })
         
     
@@ -43,6 +44,7 @@ function login(){
     
 
     searchBar();
+    
 }
 
 
@@ -53,12 +55,14 @@ function showStock(data){
 
     const d = document.createElement('div')
     const p = document.createElement('p')
+    p.id = 'searchinfo'
     const buyStock = document.createElement('form')
     const input = document.createElement('input')
     const submit = document.createElement('input')
     input.setAttribute("type", "text")
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Buy Stock")
+    input.id = 'stocknumber'
     submit.id = "buy-button"
     
             p.innerText = `Ticker: ${data.ticker}
@@ -71,12 +75,13 @@ function showStock(data){
             buyStock.appendChild(submit)
             div.appendChild(buyStock)
 
+            
             const buyButton = document.getElementById('buy-button')
             buyButton.addEventListener('click', function(event){
             event.preventDefault()
-
+            const stockNumber = document.getElementById('stocknumber').value
             console.log(data)
-            let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: 1, market_value: 300, user_id: 1}
+            let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: 1}
             let newData = Object.assign({}, newObj)
         
             fetch('http://localhost:3000/stocks', {
@@ -96,6 +101,15 @@ function showStock(data){
 
 
 function searchBar(){       
+
+const searchBar = document.getElementById('searchbar')
+searchBar.addEventListener('click', function(event){
+
+
+const searchContainer = document.getElementById('searchContainer')
+searchContainer.innerHTML = ""
+
+})
 
 const searchButton = document.getElementById('search-button')
 searchButton.addEventListener('click', function(event){
@@ -134,30 +148,6 @@ function getUser(){
     }   
 }
 
-
-// function chart(stocks){
-//    for(let i =0; i <stocks.length;i++) {
-//         let chart = new CanvasJS.Chart("chartContainer", {
-//             title:{
-//                 text: "Stock Performance"              
-//             },
-//             data: [              
-//             {
-//                 // Change type to "doughnut", "line", "splineArea", etc.
-//                 type: "line",
-//                 dataPoints: [
-//                     { label: "apple",  y: 10  },
-//                     { label: "orange", y: 15  },
-//                     { label: "banana", y: 25  },
-//                     { label: "mango",  y: 30  },
-//                     { label: "grape",  y: 28  }
-//                 ]
-//             }
-//             ]
-//         });
-//         chart.render();
-//    }
-// }
 
 function getStocks(newObj){
     fetch(`http://localhost:3000/users/${newObj.user_id}`)
@@ -261,64 +251,6 @@ setInterval(function(){updateChart()}, 1000);
 
 
 
-
-
-
-// function createChart(){
-//     main = document.querySelector('main')
-//     let script = document.createElement('script')
-//     script.src = "https://canvasjs.com/assets/script/canvasjs.min.js"
-//     main.appendChild(script)
-
-//     let datapoints = []
-//     let chart = new CanvasJS.chart("chartContainer", {
-//         title :{
-//             text: "Stock Price"
-//         },
-//         data: [{
-//             type: "line",
-//             dataPoints: datapoints
-//         }]
-//     });
-
-
-//     chartContainer = document.querySelector(".chartContainer")
-   
-   
-
-    
-
-//     function updateChart(count) {
-//     let xValue = 0
-//     let yValue = 100
-//     let dataLength = 20
-
-
-
-//     count = count || 1;
-
-// 	for (var j = 0; j < count; j++) {
-// 		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-// 		dps.push({
-// 			x: xVal,
-// 			y: yVal
-// 		});
-// 		xVal++;
-// 	}
-
-// 	if (dps.length > dataLength) {
-// 		dps.shift();
-// 	}
-
-// 	chart.render();
-//     }
-
-// updateChart(dataLength);
-
-// setInterval(function(){updateChart()}, 1000);
-
-// main.appendChild(chart)
-// }
 
 
     
