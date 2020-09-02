@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_000703) do
+ActiveRecord::Schema.define(version: 2020_09_02_041730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "stocklistings", force: :cascade do |t|
+    t.string "ticker"
+    t.string "company"
+    t.decimal "current_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "ticker"

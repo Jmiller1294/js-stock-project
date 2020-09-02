@@ -1,0 +1,2 @@
+class Stocklisting < ApplicationRecord
+end
