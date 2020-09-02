@@ -49,7 +49,7 @@ function login(){
 function showStock(data){
     const main = document.querySelector('main')
     const div = document.getElementById('searchContainer')
-    console.log(div)
+    console.log(data)
 
     const d = document.createElement('div')
     const p = document.createElement('p')
@@ -76,7 +76,7 @@ function showStock(data){
             event.preventDefault()
 
             console.log(data)
-            let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: 1, market_value: 300, user_id: data.user_id}
+            let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: 1, market_value: 300, user_id: 1}
             let newData = Object.assign({}, newObj)
         
             fetch('http://localhost:3000/stocks', {
@@ -87,7 +87,7 @@ function showStock(data){
             body: JSON.stringify(newData)
         })
         .then(response => response.json())
-        .then(data => getStocks(data))
+        .then(data => getStocks(newObj))
     })
 }
 
@@ -102,7 +102,7 @@ searchButton.addEventListener('click', function(event){
     const searchBar = document.getElementById('searchbar').value
     event.preventDefault()
     
-    fetch(`http://localhost:3000/stocks`)
+    fetch(`http://localhost:3000/stocklistings`)
     .then(response => response.json())
     .then(function(data){
         const a = data.find(e => e.ticker === searchBar)
@@ -159,8 +159,8 @@ function getUser(){
 //    }
 // }
 
-function getStocks(data){
-    fetch(`http://localhost:3000/users/${data.user_id}`)
+function getStocks(newObj){
+    fetch(`http://localhost:3000/users/${newObj.user_id}`)
     .then(response => response.json())
     .then(data => stock(data))
 
