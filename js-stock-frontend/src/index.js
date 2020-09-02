@@ -18,6 +18,7 @@ function login(){
         const username = document.getElementById('username-field').value
         usernameObject = {username: username}
 
+        
         fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -28,11 +29,13 @@ function login(){
         .then(response => response.json())
         .then(function(user){
             
+           
+            
             loginForm.style.visibility = 'hidden'
-            const body = document.querySelector('body')
+            const loginFormCon = document.getElementById('login-form-container')
             const h1 = document.createElement('h1')
             h1.innerText = `Welcome, ${user.username}`
-            body.append(h1)
+            loginFormCon.appendChild(h1)
             getStocks();
         })
         

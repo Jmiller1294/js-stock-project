@@ -1,8 +1,28 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 2px;
+    background: grey;
 }
 
 #login-form {
     text-align: center
+}
+
+
+.header {
+    padding: 5px;
+    text-align: left;
+    background: black;
+    color: white;
+    font-size: 30px;
+    margin:0;
+  }
+    
+#stockcontainer{
+    margin: 10px;
+}
+
+#login-form {
+    margin: 10px;
+    text-align: left;
 }
