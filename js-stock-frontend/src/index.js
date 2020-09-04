@@ -110,7 +110,10 @@ function buyStock(data) {
                         
                         let newShares = 0
                         newShares += (a.shares + parseInt(stockNumber))
-                        let updatedObj = {shares: newShares}
+                        console.log(newShares)
+                        let marketValue = 0
+                        marketValue += (parseInt(newShares) * parseInt(a.current_price))
+                        let updatedObj = {shares: newShares, market_value: marketValue}
                        
                         let updatedShares = Object.assign(a,updatedObj)
                         console.log(updatedShares)
@@ -137,7 +140,7 @@ function buyStock(data) {
                         
     
 
-    
+                        
 
                   
   
