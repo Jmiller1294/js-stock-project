@@ -163,7 +163,7 @@ function buyStock(data,user) {
                             body: JSON.stringify(newData)
                         })
                         .then(response => response.json())
-                        .then(data => addStock(data))
+                        .then(data => addStock(data,user))
                       
                     }
                    
@@ -178,26 +178,11 @@ function buyStock(data,user) {
 
 
 
-                
-                
+            
 
 
 
-function getStocks(newObj){
-    fetch(`http://localhost:3000/users/1`)
-    .then(response => response.json())
-    .then(user => stock(user))
-
-    
-    const main = document.querySelector('main')
-    
-   
-
-}
-
-
-
-function addStock(data) {
+function addStock(data,user) {
     
         
         
@@ -312,6 +297,7 @@ searchItem.addEventListener('click', function(event){
 
 
 const searchContainer = document.getElementById('searchContainer')
+searchItem.value =""
 searchContainer.innerHTML = ""
 
 })
