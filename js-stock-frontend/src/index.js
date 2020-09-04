@@ -29,14 +29,14 @@ function login(){
         })
         .then(response => response.json())
         .then(function(user){
-            
+            const h1 = document.createElement('h1')
            
             please.style.visibility = 'hidden'
             loginForm.style.visibility = 'hidden'
-            const h1 = document.createElement('h1')
+            h1.style.color = 'white'
             h1.id = "user-welcome"
             h1.innerText = `Welcome, ${user.username}`
-            h1.style.color = 'white'
+            
             loginFormContainer.appendChild(h1)
 
             if(user.username) {
@@ -56,120 +56,93 @@ function login(){
 
 
 function showStock(data){
-
-
-
     const main = document.querySelector('main')
     const div = document.getElementById('searchContainer')
-
-
     const d = document.createElement('div')
     const p = document.createElement('p')
+
     p.id = 'searchinfo'
     p.innerText = `Ticker: ${data.ticker}
-                           Company: ${data.company}
-                           Current Price: ${data.current_price}`
+                    Company: ${data.company}
+                    Current Price: ${data.current_price}`
     p.style.color = "white"
     div.appendChild(d)
     div.appendChild(p)
-            
-
-
 }
 
 
 function buyStock(data,user) {
     const div = document.getElementById('searchContainer')
-    console.log(user)    
+    const buyStock = document.createElement('form')
+    const input = document.createElement('input')
+    const submit = document.createElement('input')
             
-            const buyStock = document.createElement('form')
-            const input = document.createElement('input')
-            const submit = document.createElement('input')
-            input.setAttribute("type", "text")
-            submit.setAttribute("type", "submit")
-            submit.setAttribute("value", "Buy Stock")
-            input.id = 'stocknumber'
-            submit.id = "buy-button"
+    input.setAttribute("type", "text")
+    submit.setAttribute("type", "submit")
+    submit.setAttribute("value", "Buy Stock")
+    input.id = 'stocknumber'
+    submit.id = "buy-button"
 
-
-            
-           
-            buyStock.appendChild(input)
-            buyStock.appendChild(submit)
-            div.appendChild(buyStock)
-
-
-            const buyButton = document.getElementById('buy-button')
-
-            buyButton.addEventListener('click', function(event){
-                event.preventDefault()
-                fetch(`http://localhost:3000/users/${user.id}`)
-                .then(response => response.json())
-                .then(function(user){
-                    const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
-                    if(a){
-                        
-                        const stockNumber = document.getElementById('stocknumber').value
-                        
-                        let newShares = 0
-                        newShares += (a.shares + parseInt(stockNumber))
-                        let marketValue = 0
-                        marketValue += (parseInt(newShares) * parseInt(a.current_price))
-                        let updatedObj = {shares: newShares, market_value: marketValue}
-                       
-                        let updatedShares = Object.assign(a,updatedObj)
-                        console.log(a)
-
-                        fetch(`http://localhost:3000/stocks/${a.id}`, {
-                            method: 'PATCH',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                                    body: JSON.stringify(updatedShares)
-                        })
-                        .then(function(){
-                            console.log(a.id)
-                            const text = document.getElementById(`text-${a.id}`)
-                        text.innerText = `Ticker: ${updatedShares.ticker}
-                       Company: ${updatedShares.company}
-                       Current Price: ${updatedShares.current_price}
-                       Shares: ${updatedShares.shares}
-                       Market Value: ${updatedShares.market_value}` 
-                        })
-                        
-                        
-                        
-                        
+    buyStock.appendChild(input)
+    buyStock.appendChild(submit)
+    div.appendChild(buyStock)
     
+    const buyButton = document.getElementById('buy-button')
 
+    buyButton.addEventListener('click', function(event){
+        event.preventDefault()
+
+        fetch(`http://localhost:3000/users/${user.id}`)
+        then(response => response.json())
+        .then(function(user){
+            const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
+            if(a){
+                        
+                const stockNumber = document.getElementById('stocknumber').value
+                let newShares = 0
+                newShares += (a.shares + parseInt(stockNumber))
+                let marketValue = 0
+                marketValue += (parseInt(newShares) * parseInt(a.current_price))
+                let updatedObj = {shares: newShares, market_value: marketValue}
+                let updatedShares = Object.assign(a,updatedObj)
                         
 
-                  
-  
-
-                        
-                    }
-                    else {
-                        
-                        const stockNumber = document.getElementById('stocknumber').value
-                        let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: user.id}
-                        let newData = Object.assign({}, newObj)
+                fetch(`http://localhost:3000/stocks/${a.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                        body: JSON.stringify(updatedShares)
+                    })
+                    .then(function(){
+                        const text = document.getElementById(`text-${a.id}`)
+                        text.innerText = `Ticker: ${updatedShares.ticker}
+                        Company: ${updatedShares.company}
+                        Current Price: ${updatedShares.current_price}
+                        Shares: ${updatedShares.shares}
+                        Market Value: ${updatedShares.market_value}` 
+                    })
+            }
+            else {
+                const stockNumber = document.getElementById('stocknumber').value
+                let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: user.id}
+                let newData = Object.assign({}, newObj)
         
-                        fetch('http://localhost:3000/stocks', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                            body: JSON.stringify(newData)
-                        })
-                        .then(response => response.json())
-                        .then(data => addStock(data,user))
+                fetch('http://localhost:3000/stocks', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                        body: JSON.stringify(newData)
+                    })
+                    .then(response => response.json())
+                    .then(data => addStock(data,user))
                       
-                    }
+            }
                    
-                })
+        })
                 
-                })
+    })
 }
             
 
