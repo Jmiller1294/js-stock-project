@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
         login();
-        
-        // getUser();
-        // getStocks();
     })
    
 
@@ -51,35 +48,13 @@ function login(){
 }
 
 
-function showStock(data){
-    const main = document.querySelector('main')
-    const div = document.getElementById('searchContainer')
-    console.log(data)
-
-    const d = document.createElement('div')
-    const p = document.createElement('p')
-    p.id = 'searchinfo'
-    const buyStock = document.createElement('form')
-    const input = document.createElement('input')
-    const submit = document.createElement('input')
-    input.setAttribute("type", "text")
-    submit.setAttribute("type", "submit")
-    submit.setAttribute("value", "Buy Stock")
-    input.id = 'stocknumber'
-    submit.id = "buy-button"
-    
-            p.innerText = `Ticker: ${data.ticker}
-                           Company: ${data.company}
-                           Current Price: ${data.current_price}`
-            
-            div.appendChild(d)
-            div.appendChild(p)
-            buyStock.appendChild(input)
-            buyStock.appendChild(submit)
-            div.appendChild(buyStock)
+function buyStock() {
 
             
             const buyButton = document.getElementById('buy-button')
+
+
+
             buyButton.addEventListener('click', function(event){
             event.preventDefault()
             const stockNumber = document.getElementById('stocknumber').value
@@ -100,60 +75,8 @@ function showStock(data){
 }
 
 
-
-
-
-function searchBar(){       
-
-const searchBar = document.getElementById('searchbar')
-searchBar.addEventListener('click', function(event){
-
-
-const searchContainer = document.getElementById('searchContainer')
-searchContainer.innerHTML = ""
-
-})
-
-const searchButton = document.getElementById('search-button')
-searchButton.addEventListener('click', function(event){
-    const searchBar = document.getElementById('searchbar').value
-    event.preventDefault()
-    
-    fetch(`http://localhost:3000/stocklistings`)
-    .then(response => response.json())
-    .then(function(data){
-        const a = data.find(e => e.ticker === searchBar)
-        showStock(a)
-    })
-    
-})
-    
-}
-
-
-
-
-
-
-function getUser(){
-
-    fetch('http://localhost:3000/users')
-    .then(response => response.json())
-    .then(data => user(data))
-
-    function user(data) {
-    let users = data.map(user => {
-        const title = document.getElementById('header')
-        title.innerText = `Hello, ${user.username}`
-        return title
-    })
-    return users
-    }   
-}
-
-
 function getStocks(newObj){
-    fetch(`http://localhost:3000/users/${newObj.user_id}`)
+    fetch(`http://localhost:3000/users/1`)
     .then(response => response.json())
     .then(data => stock(data))
 
@@ -174,6 +97,7 @@ function getStocks(newObj){
 
             const d = document.createElement('div')
             d.id = `chartContainer${stock.id}`
+            d.className = 'chart'
             d.style = "height: 300px; width:35%;"
            
             const p = document.createElement('p')
@@ -253,7 +177,81 @@ setInterval(function(){updateChart()}, 1000);
 
 
 
+function searchBar(){       
+
+const searchBar = document.getElementById('searchbar')
+searchBar.addEventListener('click', function(event){
 
 
+const searchContainer = document.getElementById('searchContainer')
+searchContainer.innerHTML = ""
 
+})
+
+const searchButton = document.getElementById('search-button')
+searchButton.addEventListener('click', function(event){
+    const searchBar = document.getElementById('searchbar').value
+    event.preventDefault()
     
+    fetch(`http://localhost:3000/stocklistings`)
+    .then(response => response.json())
+    .then(function(data){
+        const a = data.find(e => e.ticker === searchBar||e.company === searchBar)
+        showStock(a)
+    })
+    
+})
+    
+}
+
+
+function showStock(data){
+    const main = document.querySelector('main')
+    const div = document.getElementById('searchContainer')
+    console.log(data)
+
+    const d = document.createElement('div')
+    const p = document.createElement('p')
+    p.id = 'searchinfo'
+    const buyStock = document.createElement('form')
+    const input = document.createElement('input')
+    const submit = document.createElement('input')
+    input.setAttribute("type", "text")
+    submit.setAttribute("type", "submit")
+    submit.setAttribute("value", "Buy Stock")
+    input.id = 'stocknumber'
+    submit.id = "buy-button"
+    
+            p.innerText = `Ticker: ${data.ticker}
+                           Company: ${data.company}
+                           Current Price: ${data.current_price}`
+            
+            div.appendChild(d)
+            div.appendChild(p)
+            buyStock.appendChild(input)
+            buyStock.appendChild(submit)
+            div.appendChild(buyStock)
+}
+
+
+
+function getUser(){
+
+    fetch('http://localhost:3000/users')
+    .then(response => response.json())
+    .then(data => user(data))
+
+    function user(data) {
+    let users = data.map(user => {
+        const title = document.getElementById('header')
+        title.innerText = `Hello, ${user.username}`
+        return title
+    })
+    return users
+    }   
+}
+
+
+
+
+
