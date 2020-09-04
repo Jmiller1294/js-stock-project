@@ -105,6 +105,7 @@ function buyStock(data) {
                 .then(function(user){
                     const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
                     if(a){
+                        
                         const stockNumber = document.getElementById('stocknumber').value
                         
                         let newShares = 0
@@ -112,7 +113,7 @@ function buyStock(data) {
                         let updatedObj = {shares: newShares}
                        
                         let updatedShares = Object.assign(a,updatedObj)
-
+                        console.log(updatedShares)
 
                         fetch(`http://localhost:3000/stocks/${a.id}`, {
                             method: 'PATCH',
@@ -121,9 +122,30 @@ function buyStock(data) {
                             },
                                     body: JSON.stringify(updatedShares)
                         })
+                        .then(function(){
 
+                            const text = document.getElementById(`text-${data.id}`)
+                        text.innerText = `Ticker: ${updatedShares.ticker}
+                       Company: ${updatedShares.company}
+                       Current Price: ${updatedShares.current_price}
+                       Shares: ${updatedShares.shares}
+                       Market Value: ${updatedShares.market_value}` 
+                        })
+                        
+                        
+                        
+                        
+    
+
+    
+
+                  
+  
+
+                        
                     }
                     else {
+                        
                         const stockNumber = document.getElementById('stocknumber').value
                         let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: 1}
                         let newData = Object.assign({}, newObj)
@@ -137,9 +159,11 @@ function buyStock(data) {
                         })
                         .then(response => response.json())
                         .then(data => addStock(data))
+                      
                     }
+                   
                 })
-                    
+                
                 })
 }
             
@@ -184,6 +208,7 @@ function addStock(data) {
         d.style = "height: 300px; width:35%;"
        
         const p = document.createElement('p')
+        p.id = `text-${data.id}`
         p.innerText = `Ticker: ${data.ticker}
                        Company: ${data.company}
                        Current Price: ${data.current_price}
