@@ -13,4 +13,5 @@ class UsersController < ApplicationController
        user = User.create(username: params[:username])
        render json: user
     end
+       
 end
