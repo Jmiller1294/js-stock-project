@@ -55,7 +55,60 @@ function login(){
 }
 
 
-function showStock(data){
+
+function searchBar(user){       
+    const div = document.getElementById('search-form-container')
+   
+
+    const searchForm = document.createElement('form')
+    const input = document.createElement('input')
+    const submit = document.createElement('input')
+    input.setAttribute("type", "text")
+    submit.setAttribute("type", "submit")
+    submit.setAttribute("value", "Search")
+    searchForm.id = "search-form"
+    input.id = 'searchitem'
+    submit.id = "search-button"
+
+
+    searchForm.appendChild(input)
+    searchForm.appendChild(submit)
+    div.appendChild(searchForm)
+
+
+const searchItem = document.getElementById('searchitem')
+
+
+
+searchItem.addEventListener('click', function(event){
+
+
+const searchContainer = document.getElementById('searchContainer')
+searchItem.value =""
+searchContainer.innerHTML = ""
+
+})
+
+const searchButton = document.getElementById('search-button')
+searchButton.addEventListener('click', function(event){
+    const searchBar = document.getElementById('searchitem').value
+    event.preventDefault()
+    
+    fetch(`http://localhost:3000/stocklistings`)
+    .then(response => response.json())
+    .then(function(data){
+        const a = data.find(e => e.ticker === searchBar||e.company === searchBar)
+        showStockListing(a)
+        buyStock(a,user)
+    })
+    
+})
+    
+}
+
+
+
+function showStockListing(data){
     const main = document.querySelector('main')
     const div = document.getElementById('searchContainer')
     const d = document.createElement('div')
@@ -69,6 +122,8 @@ function showStock(data){
     div.appendChild(d)
     div.appendChild(p)
 }
+
+
 
 
 function buyStock(data,user) {
@@ -93,7 +148,7 @@ function buyStock(data,user) {
         event.preventDefault()
 
         fetch(`http://localhost:3000/users/${user.id}`)
-        then(response => response.json())
+        .then(response => response.json())
         .then(function(user){
             const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
             if(a){
@@ -146,48 +201,29 @@ function buyStock(data,user) {
 }
             
 
-                
-
-
-
-
             
 
-
-
 function addStock(data,user) {
-    
+    const div = document.getElementById('stockcontainer')
+    const d = document.createElement('div')
+    const p = document.createElement('p')
         
-        
-   
-        
-        const div = document.getElementById('stockcontainer')
-        
-        
-
-        const d = document.createElement('div')
-        d.id = `chartContainer${data.id}`
-        d.className = 'chart'
-        d.style = "height: 300px; width:35%;"
-       
-        const p = document.createElement('p')
-        p.id = `text-${data.id}`
-        p.innerText = `Ticker: ${data.ticker}
-                       Company: ${data.company}
-                       Current Price: ${data.current_price}
-                       Shares: ${data.shares}
-                       Market Value: ${data.market_value}` 
-        p.style.color = "white"
-        div.appendChild(d)
-        div.appendChild(p)
+    d.id = `chartContainer${data.id}`
+    d.className = 'chart'
+    d.style = "height: 300px; width:35%;"
+    p.id = `text-${data.id}`
+    p.innerText = `Ticker: ${data.ticker}
+        Company: ${data.company}
+        Current Price: ${data.current_price}
+        Shares: ${data.shares}
+        Market Value: ${data.market_value}` 
+    p.style.color = "white"
+    div.appendChild(d)
+    div.appendChild(p)
         
     
     let time = new Date()
     let dataset = [{ x: `${time.getHours()}`,  y: parseInt(data.current_price)}]
-
-
-
-
     let chart = new CanvasJS.Chart(`chartContainer${data.id}`, {
         title:{
             text: "Stock Performance"              
@@ -196,101 +232,31 @@ function addStock(data,user) {
             title:"Stock Price"
         },
         data: [{            
-        
-            // Change type to "doughnut", "line", "splineArea", etc.
             type: "line",
             dataPoints: dataset
-               
-        
-    }]
-        
+        }]
     })
     chart.render()
 
     let xVal = time.getHours();
-let yVal = parseInt(data.current_price);	
+    let yVal = parseInt(data.current_price);	
 
-
-let updateChart = function () {
-
+    let updateChart = function () {
 
     yVal = yVal + (Math.random() - 0.50);
     dataset.push({x: xVal,y: yVal});
-    
     xVal = xVal + 0.001;
 
-chart.render();		
+    chart.render();		
     data.current_price
-// update chart after specified time. 
 
-};
-setInterval(function(){updateChart()}, 1000); 
+
+    };
+    setInterval(function(){updateChart()}, 1000); 
 
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-function searchBar(user){       
-    const div = document.getElementById('search-form-container')
-   
-
-    const searchForm = document.createElement('form')
-    const input = document.createElement('input')
-    const submit = document.createElement('input')
-    input.setAttribute("type", "text")
-    submit.setAttribute("type", "submit")
-    submit.setAttribute("value", "Search")
-    searchForm.id = "search-form"
-    input.id = 'searchitem'
-    submit.id = "search-button"
-
-
-    
-   
-    searchForm.appendChild(input)
-    searchForm.appendChild(submit)
-    div.appendChild(searchForm)
-
-
-
-
-const searchItem = document.getElementById('searchitem')
-
-searchItem.addEventListener('click', function(event){
-
-
-const searchContainer = document.getElementById('searchContainer')
-searchItem.value =""
-searchContainer.innerHTML = ""
-
-})
-
-const searchButton = document.getElementById('search-button')
-searchButton.addEventListener('click', function(event){
-    const searchBar = document.getElementById('searchitem').value
-    event.preventDefault()
-    
-    fetch(`http://localhost:3000/stocklistings`)
-    .then(response => response.json())
-    .then(function(data){
-        const a = data.find(e => e.ticker === searchBar||e.company === searchBar)
-        showStock(a)
-        buyStock(a,user)
-    })
-    
-})
-    
-}
 
 
 
