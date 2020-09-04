@@ -44,10 +44,6 @@ function login(){
                 searchBar(user)
             }
         })
-        
-    
-
-    
     
     })
     
@@ -55,14 +51,25 @@ function login(){
 }
 
 
+class Stock {
+    constructor(data){
+        this.id = data.id
+        this.ticker = data.ticker
+        this.company = data.company
+        this.current_price = data.current_price
+    }
+}
+
+
 
 function searchBar(user){       
     const div = document.getElementById('search-form-container')
-   
-
+    const searchContainer = document.getElementById('searchContainer')
     const searchForm = document.createElement('form')
     const input = document.createElement('input')
     const submit = document.createElement('input')
+
+
     input.setAttribute("type", "text")
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Search")
@@ -76,34 +83,28 @@ function searchBar(user){
     div.appendChild(searchForm)
 
 
-const searchItem = document.getElementById('searchitem')
+    const searchItem = document.getElementById('searchitem')
 
-
-
-searchItem.addEventListener('click', function(event){
-
-
-const searchContainer = document.getElementById('searchContainer')
-searchItem.value =""
-searchContainer.innerHTML = ""
-
-})
-
-const searchButton = document.getElementById('search-button')
-searchButton.addEventListener('click', function(event){
-    const searchBar = document.getElementById('searchitem').value
-    event.preventDefault()
-    
-    fetch(`http://localhost:3000/stocklistings`)
-    .then(response => response.json())
-    .then(function(data){
-        const a = data.find(e => e.ticker === searchBar||e.company === searchBar)
-        showStockListing(a)
-        buyStock(a,user)
+    searchItem.addEventListener('click', function(event){
+        searchItem.value =""
+        searchContainer.innerHTML = ""
     })
+
+    const searchButton = document.getElementById('search-button')
+
+    searchButton.addEventListener('click', function(event){
+    event.preventDefault()
+    const searchBar = document.getElementById('searchitem').value
     
-})
-    
+        fetch(`http://localhost:3000/stocklistings`)
+        .then(response => response.json())
+        .then(function(data){
+            const a = data.find(e => e.ticker === searchBar||e.company === searchBar)
+            let b = new Stock(a)
+            showStockListing(b)
+            buyStock(b,user)
+        })
+    })
 }
 
 
@@ -119,8 +120,10 @@ function showStockListing(data){
                     Company: ${data.company}
                     Current Price: ${data.current_price}`
     p.style.color = "white"
+
     div.appendChild(d)
     div.appendChild(p)
+
 }
 
 
@@ -206,7 +209,9 @@ function buyStock(data,user) {
 function addStock(data,user) {
     const div = document.getElementById('stockcontainer')
     const d = document.createElement('div')
-    const p = document.createElement('p')
+    const p = document.createElement('p') 
+    const deleteButton = document.createElement('button')
+
         
     d.id = `chartContainer${data.id}`
     d.className = 'chart'
@@ -217,11 +222,27 @@ function addStock(data,user) {
         Current Price: ${data.current_price}
         Shares: ${data.shares}
         Market Value: ${data.market_value}` 
+    deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
     div.appendChild(d)
     div.appendChild(p)
-        
+    div.appendChild(deleteButton)
+
+    p.id = 'searchinfo'
+    p.innerText = `Ticker: ${data.ticker}
+                    Company: ${data.company}
+                    Current Price: ${data.current_price}`
+    p.style.color = "white"
+   
+
+    div.appendChild(d)
+    div.appendChild(p)
     
+
+    deleteButton.addEventListener('click',function(){
+        deleteButton()
+    })
+
     let time = new Date()
     let dataset = [{ x: `${time.getHours()}`,  y: parseInt(data.current_price)}]
     let chart = new CanvasJS.Chart(`chartContainer${data.id}`, {
@@ -253,8 +274,6 @@ function addStock(data,user) {
 
     };
     setInterval(function(){updateChart()}, 1000); 
-
-
 }
 
 
@@ -263,13 +282,13 @@ function addStock(data,user) {
 
 
 
-// function DeleteUser(){
+function deleteStock(data){
 
-//     fetch('http://localhost:3000/users/1', {
+    fetch(`http://localhost:3000/stocks/${data.id}`, {
 
-//     method: 'DELETE'
-//     })
-// }
+    method: 'DELETE'
+    })
+ }
 
 
 
