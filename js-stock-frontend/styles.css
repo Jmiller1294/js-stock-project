@@ -1,9 +1,7 @@
 body {
-    margin: 5px;
-    padding: 2px;
+    margin: 0;
     background-image: url("img/blackandwhiteCharts.jpg");
     background-size: 100%;
-
 }
 
 #login-form {
@@ -12,19 +10,27 @@ body {
 
 
 .header {
-    text-align: left;
     background: black;
     color: white;
     font-size: 30px;
     margin:0;
-  }
+}
     
 #stockcontainer{
     margin: 10px;
 }
 
 #login-form {
+    margin-left: 5px;
     text-align: left;
+}
+
+#search-form {
+    margin-left: 5px;
+}
+
+#user-welcome {
+    margin-left: 5px;
 }
 
 .chart {
@@ -35,14 +41,16 @@ body {
 #stocknumber{
     width: 20px;
 }
-#searchinfo{
-    
-}
+
 #please{
     color: white;
     margin-bottom: 0px;
+    margin-left: 5px;
+
 }
 
 #portfolio{
     color: white;
+    margin-left: 5px;
 }
+

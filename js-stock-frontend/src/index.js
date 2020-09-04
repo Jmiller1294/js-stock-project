@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-        login();
-        
-    })
+        login();    
+})
    
 
-
+    
 
 function login(){
     const loginFormContainer = document.getElementById('login-form-container')
     const loginForm = document.getElementById('login-form')
     const loginButton = document.getElementById('login-button')
     const please = document.getElementById('please')
+    const stockHeader = document.getElementById('portfolio')
+    stockHeader.style.visibility = "hidden"
     
 
     loginButton.addEventListener('click', function(event){
@@ -33,15 +34,14 @@ function login(){
             please.style.visibility = 'hidden'
             loginForm.style.visibility = 'hidden'
             const h1 = document.createElement('h1')
+            h1.id = "user-welcome"
             h1.innerText = `Welcome, ${user.username}`
             h1.style.color = 'white'
             loginFormContainer.appendChild(h1)
 
-            if(user) {
+            if(user.username) {
+                stockHeader.style.visibility = "visible"
                 searchBar()
-            }
-            else {
-                console.log("Access Denied")
             }
         })
         
@@ -66,6 +66,7 @@ function showStock(data){
     p.innerText = `Ticker: ${data.ticker}
                            Company: ${data.company}
                            Current Price: ${data.current_price}`
+    p.style.color = "white"
     div.appendChild(d)
     div.appendChild(p)
             
@@ -96,23 +97,61 @@ function buyStock(data) {
 
 
             const buyButton = document.getElementById('buy-button')
+
             buyButton.addEventListener('click', function(event){
                 event.preventDefault()
-                const stockNumber = document.getElementById('stocknumber').value
-                let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: 1}
-                let newData = Object.assign({}, newObj)
+                fetch('http://localhost:3000/users/1')
+                .then(response => response.json())
+                .then(function(user){
+                    const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
+                    if(a){
+                        const stockNumber = document.getElementById('stocknumber').value
+                        
+                        let newShares = 0
+                        newShares += (a.shares + parseInt(stockNumber))
+                        let updatedObj = {shares: newShares}
+                       
+                        let updatedShares = Object.assign(a,updatedObj)
+
+
+                        fetch(`http://localhost:3000/stocks/${a.id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                                    body: JSON.stringify(updatedShares)
+                        })
+
+                    }
+                    else {
+                        const stockNumber = document.getElementById('stocknumber').value
+                        let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: 1}
+                        let newData = Object.assign({}, newObj)
         
-                fetch('http://localhost:3000/stocks', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newData)
-            })
-            .then(response => response.json())
-            .then(data => addStock(data))
-        })
+                        fetch('http://localhost:3000/stocks', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                            body: JSON.stringify(newData)
+                        })
+                        .then(response => response.json())
+                        .then(data => addStock(data))
+                    }
+                })
+                    
+                })
 }
+            
+
+                
+
+
+
+
+                
+                
+
 
 
 function getStocks(newObj){
@@ -150,6 +189,7 @@ function addStock(data) {
                        Current Price: ${data.current_price}
                        Shares: ${data.shares}
                        Market Value: ${data.market_value}` 
+        p.style.color = "white"
         div.appendChild(d)
         div.appendChild(p)
         
@@ -222,6 +262,7 @@ function searchBar(){
     input.setAttribute("type", "text")
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Search")
+    searchForm.id = "search-form"
     input.id = 'searchitem'
     submit.id = "search-button"
 
@@ -268,19 +309,6 @@ searchButton.addEventListener('click', function(event){
 
 
 function getUser(){
-
-    fetch('http://localhost:3000/users')
-    .then(response => response.json())
-    .then(data => user(data))
-
-    function user(data) {
-    let users = data.map(user => {
-        const title = document.getElementById('header')
-        title.innerText = `Hello, ${user.username}`
-        return title
-    })
-    return users
-    }   
 }
 
 
