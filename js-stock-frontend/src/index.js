@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function login(){
     const loginFormContainer = document.getElementById('login-form-container')
+    const loginForm = document.getElementById('login-form')
     const loginButton = document.getElementById('login-button')
+    const please = document.getElementById('please')
     
 
     loginButton.addEventListener('click', function(event){
@@ -28,11 +30,19 @@ function login(){
         .then(function(user){
             
            
-            
+            please.style.visibility = 'hidden'
             loginForm.style.visibility = 'hidden'
             const h1 = document.createElement('h1')
             h1.innerText = `Welcome, ${user.username}`
+            h1.style.color = 'white'
             loginFormContainer.appendChild(h1)
+
+            if(user) {
+                searchBar()
+            }
+            else {
+                console.log("Access Denied")
+            }
         })
         
     
@@ -40,7 +50,8 @@ function login(){
     
     
     })
-    searchBar()
+    
+    
 }
 
 
