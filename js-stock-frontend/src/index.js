@@ -34,7 +34,7 @@ function login(){
             loginForm.style.visibility = 'hidden'
             h1.style.color = 'white'
             h1.id = "user-welcome"
-            h1.innerText = `Welcome, ${user.username}`
+            h1.innerText = `Welcome, ${user.username.toUpperCase()}`
             
             loginFormContainer.appendChild(h1)
 
@@ -165,7 +165,7 @@ function buyStock(stock,user) {
         fetch(`http://localhost:3000/users/${user.id}`)
         .then(response => response.json())
         .then(function(user){
-            const match = user.stocks.find(s => stock.ticker === stock.ticker||s.company === stock.company)
+            const match = user.stocks.find(s => s.ticker === stock.ticker||s.company === stock.company)
             if(match){
                 const stockNumber = document.getElementById('stock-number').value
                 let newShares = 0
@@ -214,12 +214,15 @@ function buyStock(stock,user) {
     })
 }
             
-function deleteStock(data){
+function deleteStock(stock){
 
-    fetch(`http://localhost:3000/stocks/${data.id}`, {
+    fetch(`http://localhost:3000/stocks/${stock.id}`, {
 
     method: 'DELETE'
     })
+    
+        
+    
  }
             
 
@@ -228,17 +231,21 @@ function addStock(stock,user) {
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
+    
 
         
     d.id = `chartContainer${stock.id}`
     d.className = 'chart'
     d.style = "height: 300px; width:35%;"
     p.id = `text-${stock.id}`
+    p.className = "text"
     p.innerText = `Ticker: ${stock.ticker}
         Company: ${stock.company}
         Current Price: ${stock.current_price}
         Shares: ${stock.shares}
         Market Value: ${stock.market_value}` 
+        deleteButton.id = `sell-button-${stock.id}`
+        deleteButton.className = 'sell-button'
         deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
 
@@ -247,12 +254,19 @@ function addStock(stock,user) {
     div.appendChild(p)
     div.appendChild(deleteButton)
     
+    renderChart(stock)
+    console.log(stock.id)
+   
 
-    deleteButton.addEventListener('click',function(){
+    deleteButton.addEventListener('click',function(e){
+        e.preventDefault()
+        d.parentNode.removeChild(d)
+        p.parentNode.removeChild(p)
+        deleteButton.parentNode.removeChild(deleteButton)
         deleteStock(stock)
     })
 
-    renderChart(stock)
+    
 
 
 }

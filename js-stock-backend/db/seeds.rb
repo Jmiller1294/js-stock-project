@@ -15,5 +15,8 @@
 
 
 Stocklisting.create(ticker: "A", company: "Apple", current_price: 146.0)
-Stocklisting.create(ticker: "TSLA", company: "Tesla Inc", current_price: 442.6)
-        
+Stocklisting.create(ticker: "TSLA", company: "Tesla", current_price: 442.6)
+Stocklisting.create(ticker: "MSFT", company: "Microsoft", current_price: 213.60)
+Stocklisting.create(ticker: "BA", company: "Boing", current_price: 170.91)
+Stocklisting.create(ticker: "ZM", company: "Zoom", current_price: 370)
+Stocklisting.create(ticker: "NVDA", company: "Nvidia", current_price: 499.50)

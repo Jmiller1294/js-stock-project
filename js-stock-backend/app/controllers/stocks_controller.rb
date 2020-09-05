@@ -19,4 +19,9 @@ class StocksController < ApplicationController
         stock.update(ticker: params[:ticker], company: params[:company], current_price: params[:current_price], shares: params[:shares], market_value: params[:market_value])
     end
 
+    def destroy
+        stock = Stock.find_by(id: params[:id])
+        stock.destroy
+    end
+
 end

@@ -38,7 +38,11 @@ body {
     margin-left: 10px;
 }
 
+
+
 .chart {
+    margin-top: 20px;
+
     border: 5px;
     border-style: inset;
 }
