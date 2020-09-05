@@ -17,7 +17,7 @@ body {
 }
 
 #search-container{
-    margin-left: 5px;
+    margin-left: 10px;
 }
     
 #stock-container{
@@ -26,16 +26,16 @@ body {
 }
 
 #login-form {
-    margin-left: 5px;
+    margin-left: 10px;
     text-align: left;
 }
 
 #search-form {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 #user-welcome {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .chart {
@@ -50,12 +50,12 @@ body {
 #please{
     color: white;
     margin-bottom: 0px;
-    margin-left: 5px;
+    margin-left: 10px;
 
 }
 
 #portfolio{
     color: white;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 

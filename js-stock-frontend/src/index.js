@@ -165,7 +165,7 @@ function buyStock(stock,user) {
         fetch(`http://localhost:3000/users/${user.id}`)
         .then(response => response.json())
         .then(function(user){
-            const match = user.stocks.find(s => stock.ticker === stock.ticker||s.company === stock.company)
+            const match = user.stocks.find(s => s.ticker === stock.ticker||s.company === stock.company)
             if(match){
                 const stockNumber = document.getElementById('stock-number').value
                 let newShares = 0
