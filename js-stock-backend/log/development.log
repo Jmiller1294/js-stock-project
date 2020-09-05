@@ -53177,3 +53177,1046 @@ Processing by StocksController#destroy as */*
 Completed 204 No Content in 7ms (ActiveRecord: 3.4ms | Allocations: 2441)
 
 
+Started POST "/users" for ::1 at 2020-09-05 19:47:31 -0400
+  
+PG::ConnectionBad (could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+):
+  
+pg (1.2.3) lib/pg.rb:58:in `initialize'
+pg (1.2.3) lib/pg.rb:58:in `new'
+pg (1.2.3) lib/pg.rb:58:in `connect'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.2) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.2) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.2) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2020-09-05 19:49:10 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"jayman1294", "user"=>{"username"=>"jayman1294"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "jayman1294"], ["created_at", "2020-09-05 23:49:10.583852"], ["updated_at", "2020-09-05 23:49:10.583852"]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 5376)
+
+
+Started GET "/stocklistings" for ::1 at 2020-09-05 19:49:12 -0400
+Processing by StocklistingsController#index as */*
+  [1m[36mStocklisting Load (0.8ms)[0m  [1m[34mSELECT "stocklistings".* FROM "stocklistings"[0m
+  ↳ app/controllers/stocklistings_controller.rb:4:in `index'
+Completed 200 OK in 15ms (Views: 4.8ms | ActiveRecord: 2.1ms | Allocations: 6655)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:14 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 56ms (Views: 29.9ms | ActiveRecord: 1.8ms | Allocations: 6349)
+
+
+Started POST "/stocks" for ::1 at 2020-09-05 19:49:14 -0400
+Processing by StocksController#create as */*
+  Parameters: {"ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>"4", "market_value"=>584, "user_id"=>23, "stock"=>{"ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>"4", "market_value"=>584, "user_id"=>23}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mStock Create (1.3ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "current_price", "shares", "market_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["ticker", "A"], ["company", "Apple"], ["current_price", "146.0"], ["shares", 4], ["market_value", "584.0"], ["user_id", 23], ["created_at", "2020-09-05 23:49:15.019568"], ["updated_at", "2020-09-05 23:49:15.019568"]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 6.7ms | Allocations: 9897)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:17 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1882)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:49:17 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>8, "market_value"=>1168, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:15.019Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>8, "market_value"=>1168, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:15.019Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 8], ["market_value", "1168.0"], ["updated_at", "2020-09-05 23:49:17.198276"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 9ms (ActiveRecord: 3.7ms | Allocations: 4467)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:17 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 1854)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:49:17 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>12, "market_value"=>1752, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:17.198Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>12, "market_value"=>1752, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:17.198Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 12], ["market_value", "1752.0"], ["updated_at", "2020-09-05 23:49:17.407758"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 14ms (ActiveRecord: 3.7ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:20 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 1872)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:49:20 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>13, "market_value"=>1898, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:17.407Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>13, "market_value"=>1898, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:17.407Z"}}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 13], ["market_value", "1898.0"], ["updated_at", "2020-09-05 23:49:20.178517"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 15ms (ActiveRecord: 5.1ms | Allocations: 4312)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:20 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1854)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:49:20 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>14, "market_value"=>2044, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:20.178Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>14, "market_value"=>2044, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:20.178Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 14], ["market_value", "2044.0"], ["updated_at", "2020-09-05 23:49:20.381725"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 16ms (ActiveRecord: 5.5ms | Allocations: 4305)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:23 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:27 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:53 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:54 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:55 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:55 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:55 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:55 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:56 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:56 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:56 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:57 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:57 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:57 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:57 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:58 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:49:58 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:02 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:50:02 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>15, "market_value"=>2190, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:20.381Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>15, "market_value"=>2190, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:49:20.381Z"}}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 15], ["market_value", "2190.0"], ["updated_at", "2020-09-05 23:50:02.083843"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 10ms (ActiveRecord: 3.6ms | Allocations: 4306)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:02 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:50:02 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>16, "market_value"=>2336, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:50:02.083Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>16, "market_value"=>2336, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:50:02.083Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 16], ["market_value", "2336.0"], ["updated_at", "2020-09-05 23:50:02.290336"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 6ms (ActiveRecord: 2.0ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:02 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1854)
+
+
+Started PATCH "/stocks/23" for ::1 at 2020-09-05 19:50:02 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>17, "market_value"=>2482, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:50:02.290Z", "stock"=>{"id"=>"23", "ticker"=>"A", "company"=>"Apple", "current_price"=>"146.0", "shares"=>17, "market_value"=>2482, "user_id"=>23, "created_at"=>"2020-09-05T23:49:15.019Z", "updated_at"=>"2020-09-05T23:50:02.290Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 17], ["market_value", "2482.0"], ["updated_at", "2020-09-05 23:50:02.498725"], ["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 9ms (ActiveRecord: 3.8ms | Allocations: 4302)
+
+
+Started GET "/stocklistings" for ::1 at 2020-09-05 19:50:07 -0400
+Processing by StocklistingsController#index as */*
+  [1m[36mStocklisting Load (0.2ms)[0m  [1m[34mSELECT "stocklistings".* FROM "stocklistings"[0m
+  ↳ app/controllers/stocklistings_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 2419)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:13 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1854)
+
+
+Started POST "/stocks" for ::1 at 2020-09-05 19:50:13 -0400
+Processing by StocksController#create as */*
+  Parameters: {"ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>"3", "market_value"=>1110, "user_id"=>23, "stock"=>{"ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>"3", "market_value"=>1110, "user_id"=>23}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mStock Create (0.3ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "current_price", "shares", "market_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["ticker", "ZM"], ["company", "Zoom"], ["current_price", "370.0"], ["shares", 3], ["market_value", "1110.0"], ["user_id", 23], ["created_at", "2020-09-05 23:50:13.613395"], ["updated_at", "2020-09-05 23:50:13.613395"]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 3862)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:13 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started PATCH "/stocks/24" for ::1 at 2020-09-05 19:50:13 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>6, "market_value"=>2220, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:13.613Z", "stock"=>{"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>6, "market_value"=>2220, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:13.613Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 6], ["market_value", "2220.0"], ["updated_at", "2020-09-05 23:50:13.816414"], ["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 8ms (ActiveRecord: 3.1ms | Allocations: 4285)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:13 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started PATCH "/stocks/24" for ::1 at 2020-09-05 19:50:13 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>9, "market_value"=>3330, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:13.816Z", "stock"=>{"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>9, "market_value"=>3330, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:13.816Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 9], ["market_value", "3330.0"], ["updated_at", "2020-09-05 23:50:13.992719"], ["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 8ms (ActiveRecord: 3.2ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:14 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started PATCH "/stocks/24" for ::1 at 2020-09-05 19:50:14 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>12, "market_value"=>4440, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:13.992Z", "stock"=>{"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>12, "market_value"=>4440, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:13.992Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 12], ["market_value", "4440.0"], ["updated_at", "2020-09-05 23:50:14.143470"], ["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 8ms (ActiveRecord: 3.3ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:18 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 2025)
+
+
+Started PATCH "/stocks/24" for ::1 at 2020-09-05 19:50:18 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>15, "market_value"=>5550, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:14.143Z", "stock"=>{"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>15, "market_value"=>5550, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:14.143Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 15], ["market_value", "5550.0"], ["updated_at", "2020-09-05 23:50:18.789489"], ["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 15ms (ActiveRecord: 5.6ms | Allocations: 4306)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:18 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 2025)
+
+
+Started PATCH "/stocks/24" for ::1 at 2020-09-05 19:50:18 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>18, "market_value"=>6660, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:18.789Z", "stock"=>{"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>18, "market_value"=>6660, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:18.789Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 18], ["market_value", "6660.0"], ["updated_at", "2020-09-05 23:50:18.988579"], ["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 9ms (ActiveRecord: 3.4ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:19 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started PATCH "/stocks/24" for ::1 at 2020-09-05 19:50:19 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>21, "market_value"=>7770, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:18.988Z", "stock"=>{"id"=>"24", "ticker"=>"ZM", "company"=>"Zoom", "current_price"=>"370.0", "shares"=>21, "market_value"=>7770, "user_id"=>23, "created_at"=>"2020-09-05T23:50:13.613Z", "updated_at"=>"2020-09-05T23:50:18.988Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 21], ["market_value", "7770.0"], ["updated_at", "2020-09-05 23:50:19.155604"], ["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 9ms (ActiveRecord: 3.3ms | Allocations: 4285)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:27 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:27 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:28 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:30 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 2025)
+
+
+Started GET "/stocklistings" for ::1 at 2020-09-05 19:50:38 -0400
+Processing by StocklistingsController#index as */*
+  [1m[36mStocklisting Load (0.2ms)[0m  [1m[34mSELECT "stocklistings".* FROM "stocklistings"[0m
+  ↳ app/controllers/stocklistings_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 2419)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:41 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 2025)
+
+
+Started POST "/stocks" for ::1 at 2020-09-05 19:50:41 -0400
+Processing by StocksController#create as */*
+  Parameters: {"ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>"1", "market_value"=>213.6, "user_id"=>23, "stock"=>{"ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>"1", "market_value"=>213.6, "user_id"=>23}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mStock Create (0.3ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "current_price", "shares", "market_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["ticker", "MSFT"], ["company", "Microsoft"], ["current_price", "213.6"], ["shares", 1], ["market_value", "213.6"], ["user_id", 23], ["created_at", "2020-09-05 23:50:41.381184"], ["updated_at", "2020-09-05 23:50:41.381184"]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 3870)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:41 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 2196)
+
+
+Started PATCH "/stocks/25" for ::1 at 2020-09-05 19:50:41 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>2, "market_value"=>426, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:41.381Z", "stock"=>{"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>2, "market_value"=>426, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:41.381Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 2], ["market_value", "426.0"], ["updated_at", "2020-09-05 23:50:41.563149"], ["id", 25]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 9ms (ActiveRecord: 3.2ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:41 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms | Allocations: 2196)
+
+
+Started PATCH "/stocks/25" for ::1 at 2020-09-05 19:50:41 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>3, "market_value"=>639, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:41.563Z", "stock"=>{"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>3, "market_value"=>639, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:41.563Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.3ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 3], ["market_value", "639.0"], ["updated_at", "2020-09-05 23:50:41.745225"], ["id", 25]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 8ms (ActiveRecord: 3.2ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:44 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 2196)
+
+
+Started PATCH "/stocks/25" for ::1 at 2020-09-05 19:50:44 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>4, "market_value"=>852, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:41.745Z", "stock"=>{"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>4, "market_value"=>852, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:41.745Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.4ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 4], ["market_value", "852.0"], ["updated_at", "2020-09-05 23:50:44.833884"], ["id", 25]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 7ms (ActiveRecord: 2.5ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:45 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 2196)
+
+
+Started PATCH "/stocks/25" for ::1 at 2020-09-05 19:50:45 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>5, "market_value"=>1065, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:44.833Z", "stock"=>{"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>5, "market_value"=>1065, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:44.833Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 5], ["market_value", "1065.0"], ["updated_at", "2020-09-05 23:50:45.078832"], ["id", 25]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 6ms (ActiveRecord: 1.8ms | Allocations: 4302)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:50:45 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 2196)
+
+
+Started PATCH "/stocks/25" for ::1 at 2020-09-05 19:50:45 -0400
+Processing by StocksController#update as */*
+  Parameters: {"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>6, "market_value"=>1278, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:45.078Z", "stock"=>{"id"=>"25", "ticker"=>"MSFT", "company"=>"Microsoft", "current_price"=>"213.6", "shares"=>6, "market_value"=>1278, "user_id"=>23, "created_at"=>"2020-09-05T23:50:41.381Z", "updated_at"=>"2020-09-05T23:50:45.078Z"}}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:18:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[36mStock Update (0.2ms)[0m  [1m[33mUPDATE "stocks" SET "shares" = $1, "market_value" = $2, "updated_at" = $3 WHERE "stocks"."id" = $4[0m  [["shares", 6], ["market_value", "1278.0"], ["updated_at", "2020-09-05 23:50:45.265906"], ["id", 25]]
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:19:in `update'
+Completed 204 No Content in 8ms (ActiveRecord: 3.2ms | Allocations: 4302)
+
+
+Started GET "/stocklistings" for ::1 at 2020-09-05 19:50:51 -0400
+Processing by StocklistingsController#index as */*
+  [1m[36mStocklisting Load (0.3ms)[0m  [1m[34mSELECT "stocklistings".* FROM "stocklistings"[0m
+  ↳ app/controllers/stocklistings_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 2419)
+
+
+Started GET "/stocklistings" for ::1 at 2020-09-05 19:50:56 -0400
+Processing by StocklistingsController#index as */*
+  [1m[36mStocklisting Load (0.2ms)[0m  [1m[34mSELECT "stocklistings".* FROM "stocklistings"[0m
+  ↳ app/controllers/stocklistings_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 2419)
+
+
+Started GET "/users/23" for ::1 at 2020-09-05 19:51:01 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."user_id" = $1[0m  [["user_id", 23]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 2196)
+
+
+Started POST "/stocks" for ::1 at 2020-09-05 19:51:01 -0400
+Processing by StocksController#create as */*
+  Parameters: {"ticker"=>"TSLA", "company"=>"Tesla", "current_price"=>"442.6", "shares"=>"44", "market_value"=>19474.4, "user_id"=>23, "stock"=>{"ticker"=>"TSLA", "company"=>"Tesla", "current_price"=>"442.6", "shares"=>"44", "market_value"=>19474.4, "user_id"=>23}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[36mStock Create (0.3ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "current_price", "shares", "market_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["ticker", "TSLA"], ["company", "Tesla"], ["current_price", "442.6"], ["shares", 44], ["market_value", "19474.4"], ["user_id", 23], ["created_at", "2020-09-05 23:51:01.588822"], ["updated_at", "2020-09-05 23:51:01.588822"]]
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:13:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 4.2ms | Allocations: 3870)
+
+
+Started DELETE "/stocks/26" for ::1 at 2020-09-05 19:51:50 -0400
+Processing by StocksController#destroy as */*
+  Parameters: {"id"=>"26"}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[36mStock Destroy (0.2ms)[0m  [1m[31mDELETE FROM "stocks" WHERE "stocks"."id" = $1[0m  [["id", 26]]
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+Completed 204 No Content in 5ms (ActiveRecord: 1.8ms | Allocations: 2458)
+
+
+Started DELETE "/stocks/25" for ::1 at 2020-09-05 19:51:52 -0400
+Processing by StocksController#destroy as */*
+  Parameters: {"id"=>"25"}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[36mStock Destroy (0.2ms)[0m  [1m[31mDELETE FROM "stocks" WHERE "stocks"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+Completed 204 No Content in 6ms (ActiveRecord: 2.9ms | Allocations: 2441)
+
+
+Started DELETE "/stocks/24" for ::1 at 2020-09-05 19:51:53 -0400
+Processing by StocksController#destroy as */*
+  Parameters: {"id"=>"24"}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:23:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[36mStock Destroy (0.2ms)[0m  [1m[31mDELETE FROM "stocks" WHERE "stocks"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+Completed 204 No Content in 8ms (ActiveRecord: 3.4ms | Allocations: 2441)
+
+
+Started DELETE "/stocks/23" for ::1 at 2020-09-05 19:51:54 -0400
+Processing by StocksController#destroy as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[36mStock Destroy (0.2ms)[0m  [1m[31mDELETE FROM "stocks" WHERE "stocks"."id" = $1[0m  [["id", 23]]
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/stocks_controller.rb:24:in `destroy'
+Completed 204 No Content in 7ms (ActiveRecord: 3.2ms | Allocations: 2441)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (26.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "js_stock_backend_development"[0m
+  [1m[35m (22.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "js_stock_backend_test"[0m
+  [1m[35m (149.0ms)[0m  [1m[35mCREATE DATABASE "js_stock_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (73.3ms)[0m  [1m[35mCREATE DATABASE "js_stock_backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "stocklistings" CASCADE[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "stocklistings" ("id" bigserial primary key, "ticker" character varying, "company" character varying, "current_price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "stocks" CASCADE[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" bigserial primary key, "ticker" character varying, "company" character varying, "current_price" decimal, "shares" integer, "market_value" decimal, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_stocks_on_user_id" ON "stocks"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (36.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "stocks" ADD CONSTRAINT "fk_rails_f4b3894c0d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200902041730)[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200827235609),
+(20200828000703);
+
+[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-05 23:52:27.752106"], ["updated_at", "2020-09-05 23:52:27.752106"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "886f4e055c2bbc6cbc058cff110d35d8de944762"], ["created_at", "2020-09-05 23:52:27.759867"], ["updated_at", "2020-09-05 23:52:27.759867"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "stocklistings" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "stocklistings" ("id" bigserial primary key, "ticker" character varying, "company" character varying, "current_price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "stocks" CASCADE[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" bigserial primary key, "ticker" character varying, "company" character varying, "current_price" decimal, "shares" integer, "market_value" decimal, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_stocks_on_user_id" ON "stocks"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "stocks" ADD CONSTRAINT "fk_rails_f4b3894c0d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200902041730)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200827235609),
+(20200828000703);
+
+[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-05 23:52:27.831801"], ["updated_at", "2020-09-05 23:52:27.831801"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-09-05 23:52:27.840119"], ["key", "environment"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "886f4e055c2bbc6cbc058cff110d35d8de944762"], ["created_at", "2020-09-05 23:52:27.845635"], ["updated_at", "2020-09-05 23:52:27.845635"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.3ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "A"], ["company", "Apple"], ["current_price", "146.0"], ["created_at", "2020-09-05 23:52:27.888758"], ["updated_at", "2020-09-05 23:52:27.888758"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "TSLA"], ["company", "Tesla"], ["current_price", "442.6"], ["created_at", "2020-09-05 23:52:27.896233"], ["updated_at", "2020-09-05 23:52:27.896233"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "MSFT"], ["company", "Microsoft"], ["current_price", "213.6"], ["created_at", "2020-09-05 23:52:27.902589"], ["updated_at", "2020-09-05 23:52:27.902589"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "BA"], ["company", "Boing"], ["current_price", "170.91"], ["created_at", "2020-09-05 23:52:27.909074"], ["updated_at", "2020-09-05 23:52:27.909074"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "ZM"], ["company", "Zoom"], ["current_price", "370.0"], ["created_at", "2020-09-05 23:52:27.916505"], ["updated_at", "2020-09-05 23:52:27.916505"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "NVDA"], ["company", "Nvidia"], ["current_price", "499.5"], ["created_at", "2020-09-05 23:52:27.925921"], ["updated_at", "2020-09-05 23:52:27.925921"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6427332762128526570)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6427332762128526570)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.3ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "A"], ["company", "Apple"], ["current_price", "146.0"], ["created_at", "2020-09-05 23:52:48.312360"], ["updated_at", "2020-09-05 23:52:48.312360"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "TSLA"], ["company", "Tesla"], ["current_price", "442.6"], ["created_at", "2020-09-05 23:52:48.316118"], ["updated_at", "2020-09-05 23:52:48.316118"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "MSFT"], ["company", "Microsoft"], ["current_price", "213.6"], ["created_at", "2020-09-05 23:52:48.319447"], ["updated_at", "2020-09-05 23:52:48.319447"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "BA"], ["company", "Boing"], ["current_price", "170.91"], ["created_at", "2020-09-05 23:52:48.323502"], ["updated_at", "2020-09-05 23:52:48.323502"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "ZM"], ["company", "Zoom"], ["current_price", "370.0"], ["created_at", "2020-09-05 23:52:48.326792"], ["updated_at", "2020-09-05 23:52:48.326792"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStocklisting Create (0.2ms)[0m  [1m[32mINSERT INTO "stocklistings" ("ticker", "company", "current_price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ticker", "NVDA"], ["company", "Nvidia"], ["current_price", "499.5"], ["created_at", "2020-09-05 23:52:48.330117"], ["updated_at", "2020-09-05 23:52:48.330117"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m

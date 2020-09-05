@@ -69,7 +69,6 @@ function searchBar(user){
     const input = document.createElement('input')
     const submit = document.createElement('input')
 
-
     input.setAttribute("type", "text")
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Search")
@@ -77,11 +76,9 @@ function searchBar(user){
     input.id = 'search-item'
     submit.id = "search-button"
 
-
     searchForm.appendChild(input)
     searchForm.appendChild(submit)
     div.appendChild(searchForm)
-
 
     const searchItem = document.getElementById('search-item')
 
@@ -89,7 +86,6 @@ function searchBar(user){
         searchItem.value =""
         searchContainer.innerHTML = ""
     })
-
 
     const searchButton = document.getElementById('search-button')
 
@@ -135,7 +131,6 @@ function showStockListing(stock){
 
     div.appendChild(d)
     div.appendChild(p)
-
 }
 
 
@@ -247,7 +242,6 @@ function addStock(stock,user) {
     p.id = `text-${stock.id}`
     deleteButton.id = `sell-button-${stock.id}`
 
-    
     parentD.className = 'parent'
     companyName.className = 'company'
     h3.className = 'current-price'
@@ -313,18 +307,18 @@ function renderChart(stock){
 
     chart.render()
     
-    let xVal = 2
-    let yVal = parseInt(stock.current_price);
+    let xValue = 2
+    let yValue = parseInt(stock.current_price);
     
     let updateChart = function() {
-        yVal = yVal + (Math.random() - 0.50);
-        xVal = xVal + 1;
-        dataset.push({x: xVal,y: yVal});
+        yValue = yValue + (Math.random() - 0.50);
+        xValue = xValue + 1;
+        dataset.push({x: xValue,y: yValue});
 
         const currentPrice = document.getElementById(`h3-${stock.id}`) 
 
         if (currentPrice){
-            currentPrice.innerHTML = `Current Price: $${yVal.toFixed(2)}`
+            currentPrice.innerHTML = `Current Price: $${yValue.toFixed(2)}`
         }
 
     chart.render();		
