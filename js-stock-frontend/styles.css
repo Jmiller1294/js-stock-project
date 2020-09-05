@@ -40,6 +40,8 @@ body {
 .parent{
     border-style: outset;
     margin: 5px;
+    box-sizing: border-box;
+    
 }
 
 .company{
@@ -51,8 +53,6 @@ body {
 }
 
 .chart {
-    margin-top: 20px;
-    margin-left: 10px;
     border: 5px;
     border-style: inset;
 }

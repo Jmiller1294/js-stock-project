@@ -289,7 +289,7 @@ function addStock(stock,user) {
 
 function renderChart(stock){
     let time = new Date()
-    let dataset = [{ x: 0,  y: parseInt(stock.current_price)}]
+    let dataset = [{ x: 1,  y: parseInt(stock.current_price)}]
     
     let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
         theme: "dark1",
@@ -313,7 +313,7 @@ function renderChart(stock){
 
     chart.render()
     
-    let xVal = time.getSeconds()
+    let xVal = 2
     let yVal = parseInt(stock.current_price);
     
     let updateChart = function() {
