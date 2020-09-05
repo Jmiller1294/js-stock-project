@@ -235,12 +235,13 @@ function deleteStock(stock){
 
 function addStock(stock,user) {
     const div = document.getElementById('stock-container')
+    const parentD = document.createElement('div')
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
     
 
-        
+    parentD.id = `parent-${stock.id}` 
     d.id = `chartContainer${stock.id}`
     d.className = 'chart'
     d.style = "height: 300px; width:35%;"
@@ -255,13 +256,16 @@ function addStock(stock,user) {
         deleteButton.className = 'sell-button'
         deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
-
-
+    parentD.innerHTML = `Current Price: $${stock.current_price}`
+    parentD.style.color = "white"
+    div.appendChild(parentD)
+    parentD.appendChild(d)
     div.appendChild(d)
     div.appendChild(p)
     div.appendChild(deleteButton)
     
-    renderChart(stock)
+    
+    
     
     deleteButton.addEventListener('click',function(e){
         e.preventDefault()
@@ -270,36 +274,56 @@ function addStock(stock,user) {
         deleteButton.parentNode.removeChild(deleteButton)
         deleteStock(stock)
     })
+    renderChart(stock)
 }
 
 
 function renderChart(stock){
-
     let time = new Date()
+    console.log(time.getTime())
     let dataset = [{ x: `${time.getHours()}`,  y: parseInt(stock.current_price)}]
     let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
+        theme: "dark1",
         title:{
             text: "Stock Performance"              
+        },
+        axisX: {
+            crosshair: {
+              enabled: true,
+            },
+            title:"Seconds"
         },
         axisY: {						
             title:"Stock Price"
         },
-        data: [{            
+        data: [{    
             type: "line",
             dataPoints: dataset
         }]
     })
+
+    
+    
+    
+    
     chart.render()
+    
+    
 
-    let xVal = time.getHours();
-    let yVal = parseInt(stock.current_price);	
+    let xVal = time.getSeconds()
+    let yVal = parseInt(stock.current_price);
 
-    let updateChart = function () {
+    
+    let updateChart = function() {
+        yVal = yVal + (Math.random() - 0.50);
+        xVal = xVal + 1;
+        dataset.push({x: xVal,y: yVal});
 
-    yVal = yVal + (Math.random() - 0.50);
-    dataset.push({x: xVal,y: yVal});
-    xVal = xVal + 0.001;
-
+        
+        const d = document.getElementById(`parent-${stock.id}`)
+        
+       
+        d.innerHTML = `Current Price: $${yVal.toFixed(2)}`
     chart.render();		
     };
     setInterval(function(){updateChart()}, 1000); 
