@@ -191,9 +191,9 @@ function buyStock(stock,user) {
                         .then(function(){
                             const text = document.getElementById(`text-${match.id}`)
                             text.innerText = `Ticker: ${updatedShares.ticker}
-                            Company: ${updatedShares.company}
+                            Opening Price: $${updatedShares.current_price}
                             Shares: ${updatedShares.shares}
-                            Market Value: ${updatedShares.market_value}` 
+                            Market Value: $${updatedShares.market_value}` 
                         })
                 }   
             }
@@ -235,13 +235,16 @@ function deleteStock(stock){
 function addStock(stock,user) {
     const div = document.getElementById('stock-container')
     const parentD = document.createElement('div')
-    const h2 = document.createElement('h2')
+    const companyName = document.createElement('h2')
+    const h3 = document.createElement('h3')
+    
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
     
 
-    h2.id = `h2-${stock.id}` 
+    companyName.id = `company-name-${stock.id}`
+    h3.id = `h3-${stock.id}` 
     parentD.id = `parent-${stock.id}` 
     d.id = `chartContainer${stock.id}`
     d.className = 'chart'
@@ -249,22 +252,25 @@ function addStock(stock,user) {
     p.id = `text-${stock.id}`
     p.className = "text"
     p.innerText = `Ticker: ${stock.ticker}
-        Company: ${stock.company}
+        Opening Price: $${stock.current_price}
         Shares: ${stock.shares}
-        Market Value: ${stock.market_value}` 
+        Market Value: $${stock.market_value}` 
         deleteButton.id = `sell-button-${stock.id}`
         deleteButton.className = 'sell-button'
         deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
-    h2.innerHTML = `Current Price: $${stock.current_price}`
-    h2.style.color = "white"
+    companyName.style.color = "white"
+    companyName.innerHTML=`${stock.company}`
+    h3.innerHTML = `Current Price: $${stock.current_price}`
+    h3.style.color = "white"
 
    
 
 
 
     div.appendChild(parentD)
-    parentD.appendChild(h2)
+    parentD.appendChild(companyName)
+    parentD.appendChild(h3)
     parentD.appendChild(d)
     parentD.appendChild(d)
     parentD.appendChild(p)
@@ -316,7 +322,7 @@ function renderChart(stock){
         xVal = xVal + 1;
         dataset.push({x: xVal,y: yVal});
 
-        const currentPrice = document.getElementById(`h2-${stock.id}`) 
+        const currentPrice = document.getElementById(`h3-${stock.id}`) 
         currentPrice.innerHTML = `Current Price: $${yVal.toFixed(2)}`
         
 
