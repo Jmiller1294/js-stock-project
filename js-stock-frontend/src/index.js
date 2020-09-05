@@ -192,7 +192,6 @@ function buyStock(stock,user) {
                             const text = document.getElementById(`text-${match.id}`)
                             text.innerText = `Ticker: ${updatedShares.ticker}
                             Company: ${updatedShares.company}
-                            Current Price: ${updatedShares.current_price}
                             Shares: ${updatedShares.shares}
                             Market Value: ${updatedShares.market_value}` 
                         })
@@ -236,11 +235,13 @@ function deleteStock(stock){
 function addStock(stock,user) {
     const div = document.getElementById('stock-container')
     const parentD = document.createElement('div')
+    const h2 = document.createElement('h2')
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
     
 
+    h2.id = `h2-${stock.id}` 
     parentD.id = `parent-${stock.id}` 
     d.id = `chartContainer${stock.id}`
     d.className = 'chart'
@@ -249,27 +250,30 @@ function addStock(stock,user) {
     p.className = "text"
     p.innerText = `Ticker: ${stock.ticker}
         Company: ${stock.company}
-        Current Price: ${stock.current_price}
         Shares: ${stock.shares}
         Market Value: ${stock.market_value}` 
         deleteButton.id = `sell-button-${stock.id}`
         deleteButton.className = 'sell-button'
         deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
-    parentD.innerHTML = `Current Price: $${stock.current_price}`
-    parentD.style.color = "white"
+    h2.innerHTML = `Current Price: $${stock.current_price}`
+    h2.style.color = "white"
+
+   
+
+
+
     div.appendChild(parentD)
+    parentD.appendChild(h2)
     parentD.appendChild(d)
-    div.appendChild(d)
-    div.appendChild(p)
-    div.appendChild(deleteButton)
-    
-    
+    parentD.appendChild(d)
+    parentD.appendChild(p)
+    parentD.appendChild(deleteButton)
     
     
     deleteButton.addEventListener('click',function(e){
         e.preventDefault()
-        d.parentNode.removeChild(d)
+        parentD.parentNode.removeChild(parentD)
         p.parentNode.removeChild(p)
         deleteButton.parentNode.removeChild(deleteButton)
         deleteStock(stock)
@@ -280,8 +284,8 @@ function addStock(stock,user) {
 
 function renderChart(stock){
     let time = new Date()
-    console.log(time.getTime())
-    let dataset = [{ x: `${time.getHours()}`,  y: parseInt(stock.current_price)}]
+    let dataset = [{ x: `${time.getSeconds()}`,  y: parseInt(stock.current_price)}]
+    
     let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
         theme: "dark1",
         title:{
@@ -302,28 +306,20 @@ function renderChart(stock){
         }]
     })
 
-    
-    
-    
-    
     chart.render()
     
-    
-
     let xVal = time.getSeconds()
     let yVal = parseInt(stock.current_price);
-
     
     let updateChart = function() {
         yVal = yVal + (Math.random() - 0.50);
         xVal = xVal + 1;
         dataset.push({x: xVal,y: yVal});
 
+        const currentPrice = document.getElementById(`h2-${stock.id}`) 
+        currentPrice.innerHTML = `Current Price: $${yVal.toFixed(2)}`
         
-        const d = document.getElementById(`parent-${stock.id}`)
-        
-       
-        d.innerHTML = `Current Price: $${yVal.toFixed(2)}`
+
     chart.render();		
     };
     setInterval(function(){updateChart()}, 1000); 
