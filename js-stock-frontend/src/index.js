@@ -165,7 +165,7 @@ function buyStock(stock,user) {
         fetch(`http://localhost:3000/users/${user.id}`)
         .then(response => response.json())
         .then(function(user){
-            const match = user.stocks.find(s => s.ticker === stock.ticker||s.company === stock.company)
+            const match = user.stocks.find(s => stock.ticker === stock.ticker||s.company === stock.company)
             if(match){
                 const stockNumber = document.getElementById('stock-number').value
                 let newShares = 0
@@ -214,7 +214,13 @@ function buyStock(stock,user) {
     })
 }
             
+function deleteStock(data){
 
+    fetch(`http://localhost:3000/stocks/${data.id}`, {
+
+    method: 'DELETE'
+    })
+ }
             
 
 function addStock(stock,user) {
@@ -243,10 +249,17 @@ function addStock(stock,user) {
     
 
     deleteButton.addEventListener('click',function(){
-        deleteButton()
+        deleteStock(stock)
     })
 
-    let time = new Date()
+    renderChart(stock)
+
+
+}
+
+function renderChart(stock){
+
+let time = new Date()
     let dataset = [{ x: `${time.getHours()}`,  y: parseInt(stock.current_price)}]
     let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
         title:{
@@ -274,17 +287,13 @@ function addStock(stock,user) {
     chart.render();		
     };
     setInterval(function(){updateChart()}, 1000); 
+
+
 }
 
 
 
-function deleteStock(data){
 
-    fetch(`http://localhost:3000/stocks/${data.id}`, {
-
-    method: 'DELETE'
-    })
- }
 
 
 
