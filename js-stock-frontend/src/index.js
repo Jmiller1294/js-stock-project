@@ -100,10 +100,21 @@ function searchBar(user){
         fetch(`http://localhost:3000/stocklistings`)
         .then(response => response.json())
         .then(function(data){
-            const obj = data.find(e => e.ticker === searchBar||e.company === searchBar)
+            const obj = data.find(e => e.ticker === searchBar||e.ticker.toLowerCase() === searchBar||e.company === searchBar||e.company.toLowerCase() === searchBar)
             let stock = new Stock(obj)
             showStockListing(stock)
             buyStock(stock,user)
+        }).catch(function(){
+            const main = document.querySelector('main')
+            const div = document.getElementById('search-container')
+            const d = document.createElement('div')
+            const p = document.createElement('p')
+            
+            p.innerText = "Stock Not Found!"
+            p.style.color = "white"
+            
+            div.appendChild(d)
+            div.appendChild(p)
         })
     })
 }
