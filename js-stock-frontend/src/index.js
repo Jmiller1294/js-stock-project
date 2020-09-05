@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
    
 
     
-
 function login(){
     const loginFormContainer = document.getElementById('login-form-container')
     const loginForm = document.getElementById('login-form')
@@ -17,7 +16,7 @@ function login(){
     loginButton.addEventListener('click', function(event){
         event.preventDefault()
         const username = document.getElementById('username-field').value
-        usernameObject = {username: username}
+        usernameObj = {username: username}
 
         
         fetch('http://localhost:3000/users', {
@@ -25,7 +24,7 @@ function login(){
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(usernameObject)
+            body: JSON.stringify(usernameObj)
         })
         .then(response => response.json())
         .then(function(user){
@@ -101,26 +100,26 @@ function searchBar(user){
         fetch(`http://localhost:3000/stocklistings`)
         .then(response => response.json())
         .then(function(data){
-            const a = data.find(e => e.ticker === searchBar||e.company === searchBar)
-            let b = new Stock(a)
-            showStockListing(b)
-            buyStock(b,user)
+            const obj = data.find(e => e.ticker === searchBar||e.company === searchBar)
+            let stock = new Stock(obj)
+            showStockListing(stock)
+            buyStock(stock,user)
         })
     })
 }
 
 
 
-function showStockListing(b){
+function showStockListing(stock){
     const main = document.querySelector('main')
     const div = document.getElementById('search-container')
     const d = document.createElement('div')
     const p = document.createElement('p')
 
     p.id = 'search-info'
-    p.innerText = `Ticker: ${b.ticker}
-                    Company: ${b.company}
-                    Current Price: ${b.current_price}`
+    p.innerText = `Ticker: ${stock.ticker}
+                    Company: ${stock.company}
+                    Current Price: ${stock.current_price}`
     p.style.color = "white"
 
     div.appendChild(d)
@@ -131,7 +130,7 @@ function showStockListing(b){
 
 
 
-function buyStock(data,user) {
+function buyStock(stock,user) {
     const div = document.getElementById('search-container')
     const buyStock = document.createElement('form')
     const input = document.createElement('input')
@@ -155,19 +154,18 @@ function buyStock(data,user) {
         fetch(`http://localhost:3000/users/${user.id}`)
         .then(response => response.json())
         .then(function(user){
-            const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
-            if(a){
-                        
+            const match = user.stocks.find(s => stock.ticker === stock.ticker||s.company === stock.company)
+            if(match){
                 const stockNumber = document.getElementById('stock-number').value
                 let newShares = 0
-                newShares += (a.shares + parseInt(stockNumber))
+                newShares += (match.shares + parseInt(stockNumber))
                 let marketValue = 0
-                marketValue += (parseInt(newShares) * parseInt(a.current_price))
+                marketValue += (parseInt(newShares) * parseInt(match.current_price))
                 let updatedObj = {shares: newShares, market_value: marketValue}
-                let updatedShares = Object.assign(a,updatedObj)
+                let updatedShares = Object.assign(match,updatedObj)
                         
 
-                fetch(`http://localhost:3000/stocks/${a.id}`, {
+                fetch(`http://localhost:3000/stocks/${match.id}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -175,7 +173,7 @@ function buyStock(data,user) {
                         body: JSON.stringify(updatedShares)
                     })
                     .then(function(){
-                        const text = document.getElementById(`text-${a.id}`)
+                        const text = document.getElementById(`text-${match.id}`)
                         text.innerText = `Ticker: ${updatedShares.ticker}
                         Company: ${updatedShares.company}
                         Current Price: ${updatedShares.current_price}
@@ -185,7 +183,7 @@ function buyStock(data,user) {
             }
             else {
                 const stockNumber = document.getElementById('stock-number').value
-                let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: user.id}
+                let newObj = {ticker: stock.ticker, company: stock.company, current_price: stock.current_price, shares: stockNumber, market_value: (stockNumber * stock.current_price), user_id: user.id}
                 let newData = Object.assign({}, newObj)
         
                 fetch('http://localhost:3000/stocks', {
@@ -196,7 +194,7 @@ function buyStock(data,user) {
                         body: JSON.stringify(newData)
                     })
                     .then(response => response.json())
-                    .then(data => addStock(data,user))
+                    .then(stock => addStock(stock,user))
                       
             }
                    
@@ -208,25 +206,26 @@ function buyStock(data,user) {
 
             
 
-function addStock(data,user) {
-    console.log(data.market_value)
+function addStock(stock,user) {
     const div = document.getElementById('stock-container')
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
 
         
-    d.id = `chartContainer${data.id}`
+    d.id = `chartContainer${stock.id}`
     d.className = 'chart'
     d.style = "height: 300px; width:35%;"
-    p.id = `text-${data.id}`
-    p.innerText = `Ticker: ${data.ticker}
-        Company: ${data.company}
-        Current Price: ${data.current_price}
-        Shares: ${data.shares}
-        Market Value: ${data.market_value}` 
+    p.id = `text-${stock.id}`
+    p.innerText = `Ticker: ${stock.ticker}
+        Company: ${stock.company}
+        Current Price: ${stock.current_price}
+        Shares: ${stock.shares}
+        Market Value: ${stock.market_value}` 
         deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
+
+
     div.appendChild(d)
     div.appendChild(p)
     div.appendChild(deleteButton)
@@ -237,8 +236,8 @@ function addStock(data,user) {
     })
 
     let time = new Date()
-    let dataset = [{ x: `${time.getHours()}`,  y: parseInt(data.current_price)}]
-    let chart = new CanvasJS.Chart(`chartContainer${data.id}`, {
+    let dataset = [{ x: `${time.getHours()}`,  y: parseInt(stock.current_price)}]
+    let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
         title:{
             text: "Stock Performance"              
         },
@@ -253,7 +252,7 @@ function addStock(data,user) {
     chart.render()
 
     let xVal = time.getHours();
-    let yVal = parseInt(data.current_price);	
+    let yVal = parseInt(stock.current_price);	
 
     let updateChart = function () {
 
@@ -262,16 +261,9 @@ function addStock(data,user) {
     xVal = xVal + 0.001;
 
     chart.render();		
-    data.current_price
-
-
     };
     setInterval(function(){updateChart()}, 1000); 
 }
-
-
-
-
 
 
 
