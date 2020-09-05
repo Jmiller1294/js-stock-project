@@ -15,9 +15,14 @@ body {
     font-size: 30px;
     margin:0;
 }
+
+#search-container{
+    margin-left: 5px;
+}
     
-#stockcontainer{
+#stock-container{
     margin: 10px;
+    
 }
 
 #login-form {
@@ -38,7 +43,7 @@ body {
     border-style: inset;
 }
 
-#stocknumber{
+#stock-number{
     width: 20px;
 }
 

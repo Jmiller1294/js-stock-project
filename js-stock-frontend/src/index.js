@@ -47,7 +47,6 @@ function login(){
     
     })
     
-    
 }
 
 
@@ -57,6 +56,8 @@ class Stock {
         this.ticker = data.ticker
         this.company = data.company
         this.current_price = data.current_price
+        this.shares = 0
+        this.market_value = 0
     }
 }
 
@@ -64,7 +65,7 @@ class Stock {
 
 function searchBar(user){       
     const div = document.getElementById('search-form-container')
-    const searchContainer = document.getElementById('searchContainer')
+    const searchContainer = document.getElementById('search-container')
     const searchForm = document.createElement('form')
     const input = document.createElement('input')
     const submit = document.createElement('input')
@@ -74,7 +75,7 @@ function searchBar(user){
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Search")
     searchForm.id = "search-form"
-    input.id = 'searchitem'
+    input.id = 'search-item'
     submit.id = "search-button"
 
 
@@ -83,18 +84,19 @@ function searchBar(user){
     div.appendChild(searchForm)
 
 
-    const searchItem = document.getElementById('searchitem')
+    const searchItem = document.getElementById('search-item')
 
     searchItem.addEventListener('click', function(event){
         searchItem.value =""
         searchContainer.innerHTML = ""
     })
 
+
     const searchButton = document.getElementById('search-button')
 
     searchButton.addEventListener('click', function(event){
-    event.preventDefault()
-    const searchBar = document.getElementById('searchitem').value
+        event.preventDefault()
+        const searchBar = document.getElementById('search-item').value
     
         fetch(`http://localhost:3000/stocklistings`)
         .then(response => response.json())
@@ -109,16 +111,16 @@ function searchBar(user){
 
 
 
-function showStockListing(data){
+function showStockListing(b){
     const main = document.querySelector('main')
-    const div = document.getElementById('searchContainer')
+    const div = document.getElementById('search-container')
     const d = document.createElement('div')
     const p = document.createElement('p')
 
-    p.id = 'searchinfo'
-    p.innerText = `Ticker: ${data.ticker}
-                    Company: ${data.company}
-                    Current Price: ${data.current_price}`
+    p.id = 'search-info'
+    p.innerText = `Ticker: ${b.ticker}
+                    Company: ${b.company}
+                    Current Price: ${b.current_price}`
     p.style.color = "white"
 
     div.appendChild(d)
@@ -130,7 +132,7 @@ function showStockListing(data){
 
 
 function buyStock(data,user) {
-    const div = document.getElementById('searchContainer')
+    const div = document.getElementById('search-container')
     const buyStock = document.createElement('form')
     const input = document.createElement('input')
     const submit = document.createElement('input')
@@ -138,7 +140,7 @@ function buyStock(data,user) {
     input.setAttribute("type", "text")
     submit.setAttribute("type", "submit")
     submit.setAttribute("value", "Buy Stock")
-    input.id = 'stocknumber'
+    input.id = 'stock-number'
     submit.id = "buy-button"
 
     buyStock.appendChild(input)
@@ -156,7 +158,7 @@ function buyStock(data,user) {
             const a = user.stocks.find(stock => stock.ticker === data.ticker||stock.company === data.company)
             if(a){
                         
-                const stockNumber = document.getElementById('stocknumber').value
+                const stockNumber = document.getElementById('stock-number').value
                 let newShares = 0
                 newShares += (a.shares + parseInt(stockNumber))
                 let marketValue = 0
@@ -182,7 +184,7 @@ function buyStock(data,user) {
                     })
             }
             else {
-                const stockNumber = document.getElementById('stocknumber').value
+                const stockNumber = document.getElementById('stock-number').value
                 let newObj = {ticker: data.ticker, company: data.company, current_price: data.current_price, shares: stockNumber, market_value: (stockNumber * data.current_price), user_id: user.id}
                 let newData = Object.assign({}, newObj)
         
@@ -207,7 +209,8 @@ function buyStock(data,user) {
             
 
 function addStock(data,user) {
-    const div = document.getElementById('stockcontainer')
+    console.log(data.market_value)
+    const div = document.getElementById('stock-container')
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
@@ -222,21 +225,11 @@ function addStock(data,user) {
         Current Price: ${data.current_price}
         Shares: ${data.shares}
         Market Value: ${data.market_value}` 
-    deleteButton.innerHTML = "Sell All Shares"
+        deleteButton.innerHTML = "Sell All Shares"
     p.style.color = "white"
     div.appendChild(d)
     div.appendChild(p)
     div.appendChild(deleteButton)
-
-    p.id = 'searchinfo'
-    p.innerText = `Ticker: ${data.ticker}
-                    Company: ${data.company}
-                    Current Price: ${data.current_price}`
-    p.style.color = "white"
-   
-
-    div.appendChild(d)
-    div.appendChild(p)
     
 
     deleteButton.addEventListener('click',function(){
