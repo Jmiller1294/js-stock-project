@@ -168,45 +168,56 @@ function buyStock(stock,user) {
             const match = user.stocks.find(s => s.ticker === stock.ticker||s.company === stock.company)
             if(match){
                 const stockNumber = document.getElementById('stock-number').value
-                let newShares = 0
-                newShares += (match.shares + parseInt(stockNumber))
-                let marketValue = 0
-                marketValue += (parseInt(newShares) * parseInt(match.current_price))
-                let updatedObj = {shares: newShares, market_value: marketValue}
-                let updatedShares = Object.assign(match,updatedObj)
-                        
+        
+                if (isNaN(stockNumber)) {
+                    console.log("Not A Number!")
+                }
+                else {
+                    let newShares = 0
+                    newShares += (match.shares + parseInt(stockNumber))
+                    let marketValue = 0
+                    marketValue += (parseInt(newShares) * parseInt(match.current_price))
+                    let updatedObj = {shares: newShares, market_value: marketValue}
+                    let updatedShares = Object.assign(match,updatedObj)
+                
 
-                fetch(`http://localhost:3000/stocks/${match.id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                        body: JSON.stringify(updatedShares)
-                    })
-                    .then(function(){
-                        const text = document.getElementById(`text-${match.id}`)
-                        text.innerText = `Ticker: ${updatedShares.ticker}
-                        Company: ${updatedShares.company}
-                        Current Price: ${updatedShares.current_price}
-                        Shares: ${updatedShares.shares}
-                        Market Value: ${updatedShares.market_value}` 
-                    })
+                    fetch(`http://localhost:3000/stocks/${match.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                            body: JSON.stringify(updatedShares)
+                        })
+                        .then(function(){
+                            const text = document.getElementById(`text-${match.id}`)
+                            text.innerText = `Ticker: ${updatedShares.ticker}
+                            Company: ${updatedShares.company}
+                            Current Price: ${updatedShares.current_price}
+                            Shares: ${updatedShares.shares}
+                            Market Value: ${updatedShares.market_value}` 
+                        })
+                }   
             }
             else {
                 const stockNumber = document.getElementById('stock-number').value
-                let newObj = {ticker: stock.ticker, company: stock.company, current_price: stock.current_price, shares: stockNumber, market_value: (stockNumber * stock.current_price), user_id: user.id}
-                let newData = Object.assign({}, newObj)
+                if (isNaN(stockNumber)) {
+                    console.log("Not A Number!")
+                }
+                else {
+                
+                    let newObj = {ticker: stock.ticker, company: stock.company, current_price: stock.current_price, shares: stockNumber, market_value: (stockNumber * stock.current_price), user_id: user.id}
+                    let newData = Object.assign({}, newObj)
         
-                fetch('http://localhost:3000/stocks', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                        body: JSON.stringify(newData)
+                    fetch('http://localhost:3000/stocks', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                            body: JSON.stringify(newData)
                     })
                     .then(response => response.json())
                     .then(stock => addStock(stock,user))
-                      
+                }    
             }
                    
         })
@@ -215,14 +226,10 @@ function buyStock(stock,user) {
 }
             
 function deleteStock(stock){
-
     fetch(`http://localhost:3000/stocks/${stock.id}`, {
-
-    method: 'DELETE'
-    })
-    
         
-    
+        method: 'DELETE'
+    })   
  }
             
 
@@ -255,9 +262,7 @@ function addStock(stock,user) {
     div.appendChild(deleteButton)
     
     renderChart(stock)
-    console.log(stock.id)
-   
-
+    
     deleteButton.addEventListener('click',function(e){
         e.preventDefault()
         d.parentNode.removeChild(d)
@@ -265,15 +270,12 @@ function addStock(stock,user) {
         deleteButton.parentNode.removeChild(deleteButton)
         deleteStock(stock)
     })
-
-    
-
-
 }
+
 
 function renderChart(stock){
 
-let time = new Date()
+    let time = new Date()
     let dataset = [{ x: `${time.getHours()}`,  y: parseInt(stock.current_price)}]
     let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
         title:{
@@ -301,8 +303,6 @@ let time = new Date()
     chart.render();		
     };
     setInterval(function(){updateChart()}, 1000); 
-
-
 }
 
 
