@@ -168,8 +168,7 @@ function buyStock(stock,user) {
             const match = user.stocks.find(s => s.ticker === stock.ticker||s.company === stock.company)
             if(match){
                 const stockNumber = document.getElementById('stock-number').value
-        
-                if (isNaN(stockNumber)) {
+                if (isNaN(stockNumber)||stockNumber ==="") {
                     console.log("Not A Number!")
                 }
                 else {
@@ -199,7 +198,7 @@ function buyStock(stock,user) {
             }
             else {
                 const stockNumber = document.getElementById('stock-number').value
-                if (isNaN(stockNumber)) {
+                if (isNaN(stockNumber)||stockNumber ==="") {
                     console.log("Not A Number!")
                 }
                 else {
@@ -237,36 +236,37 @@ function addStock(stock,user) {
     const parentD = document.createElement('div')
     const companyName = document.createElement('h2')
     const h3 = document.createElement('h3')
-    
     const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
     
-
-    companyName.id = `company-name-${stock.id}`
-    h3.id = `h3-${stock.id}` 
     parentD.id = `parent-${stock.id}` 
+    companyName.id = `company-name-${stock.id}`
+    h3.id = `h3-${stock.id}`  
     d.id = `chartContainer${stock.id}`
-    d.className = 'chart'
-    d.style = "height: 300px; width:35%;"
     p.id = `text-${stock.id}`
-    p.className = "text"
+    deleteButton.id = `sell-button-${stock.id}`
+
+    
+    parentD.className = 'parent'
+    companyName.className = 'company'
+    h3.className = 'current-price'
+    d.className = 'chart'
+    p.className = 'text'
+    deleteButton.className = 'sell-button'
+    
     p.innerText = `Ticker: ${stock.ticker}
         Opening Price: $${stock.current_price}
         Shares: ${stock.shares}
         Market Value: $${stock.market_value}` 
-        deleteButton.id = `sell-button-${stock.id}`
-        deleteButton.className = 'sell-button'
-        deleteButton.innerHTML = "Sell All Shares"
-    p.style.color = "white"
-    companyName.style.color = "white"
+    deleteButton.innerHTML = "Sell All Shares"
     companyName.innerHTML=`${stock.company}`
     h3.innerHTML = `Current Price: $${stock.current_price}`
+
+    d.style = "height: 300px; width:35%;"
+    p.style.color = "white"
+    companyName.style.color = "white"
     h3.style.color = "white"
-
-   
-
-
 
     div.appendChild(parentD)
     parentD.appendChild(companyName)
@@ -275,8 +275,7 @@ function addStock(stock,user) {
     parentD.appendChild(d)
     parentD.appendChild(p)
     parentD.appendChild(deleteButton)
-    
-    
+     
     deleteButton.addEventListener('click',function(e){
         e.preventDefault()
         parentD.parentNode.removeChild(parentD)
@@ -290,7 +289,7 @@ function addStock(stock,user) {
 
 function renderChart(stock){
     let time = new Date()
-    let dataset = [{ x: `${time.getSeconds()}`,  y: parseInt(stock.current_price)}]
+    let dataset = [{ x: 0,  y: parseInt(stock.current_price)}]
     
     let chart = new CanvasJS.Chart(`chartContainer${stock.id}`, {
         theme: "dark1",
@@ -323,8 +322,10 @@ function renderChart(stock){
         dataset.push({x: xVal,y: yVal});
 
         const currentPrice = document.getElementById(`h3-${stock.id}`) 
-        currentPrice.innerHTML = `Current Price: $${yVal.toFixed(2)}`
-        
+
+        if (currentPrice){
+            currentPrice.innerHTML = `Current Price: $${yVal.toFixed(2)}`
+        }
 
     chart.render();		
     };

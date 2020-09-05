@@ -8,7 +8,6 @@ body {
     text-align: center
 }
 
-
 .header {
     background: black;
     color: white;
@@ -38,13 +37,33 @@ body {
     margin-left: 10px;
 }
 
+.parent{
+    border-style: outset;
+    margin: 5px;
+}
 
+.company{
+    margin-left: 10px;
+}
+
+.current-price{
+    margin-left: 10px;
+}
 
 .chart {
     margin-top: 20px;
-
+    margin-left: 10px;
     border: 5px;
     border-style: inset;
+}
+
+.text {
+    margin-left: 10px;
+}
+
+.sell-button {
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
 
 #stock-number{
@@ -55,7 +74,6 @@ body {
     color: white;
     margin-bottom: 0px;
     margin-left: 10px;
-
 }
 
 #portfolio{
