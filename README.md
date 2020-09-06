@@ -29,6 +29,7 @@ js-stock-project is a application that allows you to log in as a user, search fr
 
 ## Built With
   Rails - The web framework used
+  
   Javascript - Frontend language used
 
 ## License
