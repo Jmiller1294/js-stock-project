@@ -52,13 +52,15 @@ body {
     margin-left: 10px;
 }
 
-#profit {
+.profit {
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .chart {
     border: 5px;
     border-style: inset;
+    margin-left: 10px;
 }
 
 .text {

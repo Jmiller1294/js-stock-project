@@ -177,6 +177,8 @@ function buyStock(stock, currentUser) {
     buyButton.addEventListener('click', function(event){
         event.preventDefault()
 
+        alert("Are You sure You want to purchase this stock?")
+
         fetch(`http://localhost:3000/users/${currentUser.id}`)
         .then(response => response.json())
         .then(function(user){
@@ -267,7 +269,7 @@ function renderStock(stock) {
     h3.id = `h3-${stock.id}`  
     d.id = `chartContainer${stock.id}`
     p.id = `text-${stock.id}`
-    p2.id = "profit"
+    p2.id = `profit-${stock.id}`
     deleteButton.id = `sell-button-${stock.id}`
 
     div.className = 'parent'
@@ -275,6 +277,7 @@ function renderStock(stock) {
     h3.className = 'current-price'
     d.className = 'chart'
     p.className = 'text'
+    p2.className = 'profit'
     deleteButton.className = 'sell-button'
     
     p.innerText = `Ticker: ${stock.ticker}
@@ -282,7 +285,7 @@ function renderStock(stock) {
         Shares: ${stock.shares}
         Market Value: $${parseFloat(stock.market_value).toFixed(2)}
         ` 
-    p2.innerHTML = `Profit: $${0}`
+    p2.innerHTML = `Profit Per Share: $${0}`
     deleteButton.innerHTML = "Sell All Shares"
     companyName.innerHTML=`${stock.company}`
     h3.innerHTML = `Current Price: $${stock.current_price}`
@@ -347,10 +350,11 @@ function renderChart(stock){
         dataset.push({x: xValue,y: yValue});
 
         const currentPrice = document.getElementById(`h3-${stock.id}`) 
-        const profit = document.getElementById(`profit`)
+        const profit = document.getElementById(`profit-${stock.id}`)
 
         if (currentPrice){
-            currentPrice.innerHTML = `Current Price: $${yValue.toFixed(2)}` 
+            currentPrice.innerHTML = `Current Price: $${yValue.toFixed(2)}`
+            profit.innerHTML = `Profit Per Share: $ ${(parseFloat(yValue - stock.current_price).toFixed(2) * parseInt(stock.shares))}` 
         }
 
     chart.render();		
