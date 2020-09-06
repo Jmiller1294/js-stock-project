@@ -1,6 +1,6 @@
 # js-stock-project
 
-js-stock-project is a application that allows you to log in as a user, search from a list of stocks and add and delete stocks to your portfolio.
+js-stock-project is a application that allows you to log in as a user, search from a list of stocks, and add and delete stocks to your portfolio.
 
 ## Installation
 
