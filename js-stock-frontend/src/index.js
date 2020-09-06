@@ -12,13 +12,11 @@ function login(){
     const stockHeader = document.getElementById('portfolio')
     stockHeader.style.visibility = "hidden"
     
-
     loginButton.addEventListener('click', function(event){
         event.preventDefault()
         const username = document.getElementById('username-field').value
         usernameObj = {username: username}
 
-        
         fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -58,6 +56,10 @@ class Stock {
         this.shares = 0
         this.market_value = 0
     }
+
+    get currentPrice(){
+        return this.current_price
+    }
 }
 
 
@@ -85,6 +87,12 @@ function searchBar(user){
     searchItem.addEventListener('click', function(event){
         searchItem.value =""
         searchContainer.innerHTML = ""
+    })
+    searchItem.addEventListener('keydown',function(event){
+        if(event.key == 'Backspace') {
+            searchItem.value =""
+            searchContainer.innerHTML = ""
+        }
     })
 
     const searchButton = document.getElementById('search-button')
@@ -126,13 +134,12 @@ function showStockListing(stock){
     p.id = 'search-info'
     p.innerText = `Ticker: ${stock.ticker}
                     Company: ${stock.company}
-                    Current Price: ${stock.current_price}`
+                    Current Price: ${stock.currentPrice}`
     p.style.color = "white"
 
     div.appendChild(d)
     div.appendChild(p)
 }
-
 
 
 
@@ -217,7 +224,8 @@ function buyStock(stock,user) {
                 
     })
 }
-            
+       
+
 function deleteStock(stock){
     fetch(`http://localhost:3000/stocks/${stock.id}`, {
         
