@@ -109,16 +109,22 @@ function searchBar(user){
             showStockListing(stock)
             buyStock(stock,user)
         }).catch(function(){
-            const main = document.querySelector('main')
-            const div = document.getElementById('search-container')
-            const d = document.createElement('div')
-            const p = document.createElement('p')
+            if(document.getElementById('not-found')){
+                console.log("hello")
+            }
+            else {
+                const main = document.querySelector('main')
+                const div = document.getElementById('search-container')
+                const d = document.createElement('div')
+                const p = document.createElement('p')
+                p.id = "not-found"
+                p.innerText = "Stock Not Found!"
+                p.style.color = "white"
             
-            p.innerText = "Stock Not Found!"
-            p.style.color = "white"
             
-            div.appendChild(d)
-            div.appendChild(p)
+                div.appendChild(d)
+                div.appendChild(p)
+            }
         })
     })
 }
@@ -126,39 +132,45 @@ function searchBar(user){
 
 
 function showStockListing(stock){
-    const main = document.querySelector('main')
-    const div = document.getElementById('search-container')
-    const d = document.createElement('div')
-    const p = document.createElement('p')
+    if(document.getElementById('search-info')){
+        console.log('helloooo')
+    }
+    else {
+        const main = document.querySelector('main')
+        const div = document.getElementById('search-container')
+        const d = document.createElement('div')
+        const p = document.createElement('p')
+        const buyStock = document.createElement('form')
+        const input = document.createElement('input')
+        const submit = document.createElement('input')
 
-    p.id = 'search-info'
-    p.innerText = `Ticker: ${stock.ticker}
-                    Company: ${stock.company}
-                    Current Price: ${stock.currentPrice}`
-    p.style.color = "white"
 
-    div.appendChild(d)
-    div.appendChild(p)
+        p.id = 'search-info'
+        p.innerText = `Ticker: ${stock.ticker}
+                        Company: ${stock.company}
+                        Current Price: ${stock.currentPrice}`
+        p.style.color = "white"
+
+
+        input.setAttribute("type", "text")
+        submit.setAttribute("type", "submit")
+        submit.setAttribute("value", "Buy Stock")
+        input.id = 'stock-number'
+        submit.id = "buy-button"
+
+        buyStock.appendChild(input)
+        buyStock.appendChild(submit)
+        
+
+        div.appendChild(d)
+        div.appendChild(p)
+        div.appendChild(buyStock)
+    }
 }
 
 
 
 function buyStock(stock,user) {
-    const div = document.getElementById('search-container')
-    const buyStock = document.createElement('form')
-    const input = document.createElement('input')
-    const submit = document.createElement('input')
-            
-    input.setAttribute("type", "text")
-    submit.setAttribute("type", "submit")
-    submit.setAttribute("value", "Buy Stock")
-    input.id = 'stock-number'
-    submit.id = "buy-button"
-
-    buyStock.appendChild(input)
-    buyStock.appendChild(submit)
-    div.appendChild(buyStock)
-    
     const buyButton = document.getElementById('buy-button')
 
     buyButton.addEventListener('click', function(event){
@@ -179,7 +191,7 @@ function buyStock(stock,user) {
                     let marketValue = 0
                     marketValue += (parseInt(newShares) * parseInt(match.current_price))
                     let updatedObj = {shares: newShares, market_value: marketValue}
-                    let updatedShares = Object.assign(match,updatedObj)
+                    let updatedShares = Object.assign(match, updatedObj)
                 
 
                     fetch(`http://localhost:3000/stocks/${match.id}`, {
