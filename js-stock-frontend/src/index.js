@@ -56,10 +56,6 @@ class Stock {
         this.shares = 0
         this.market_value = 0
     }
-
-    get currentPrice(){
-        return this.current_price
-    }
 }
 
 
@@ -107,7 +103,7 @@ function searchBar(user){
             const obj = data.find(e => e.ticker === searchBar||e.ticker.toLowerCase() === searchBar||e.company === searchBar||e.company.toLowerCase() === searchBar)
             let stock = new Stock(obj)
             showStockListing(stock)
-            buyStock(stock,user)
+            buyStock(stock, user)
         }).catch(function(){
             if(document.getElementById('not-found')){
                 console.log("hello")
@@ -148,7 +144,7 @@ function showStockListing(stock){
         p.id = 'search-info'
         p.innerText = `Ticker: ${stock.ticker}
                         Company: ${stock.company}
-                        Current Price: ${stock.currentPrice}`
+                        Current Price: $${stock.current_price}`
         p.style.color = "white"
 
 
@@ -170,7 +166,7 @@ function showStockListing(stock){
 
 
 
-function buyStock(stock,user) {
+function buyStock(stock, user) {
     const buyButton = document.getElementById('buy-button')
 
     buyButton.addEventListener('click', function(event){
