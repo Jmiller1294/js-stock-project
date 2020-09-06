@@ -10,7 +10,7 @@ function login(){
     const loginButton = document.getElementById('login-button')
     const please = document.getElementById('please')
     const stockHeader = document.getElementById('portfolio')
-    stockHeader.style.visibility = "hidden"
+    stockHeader.style.visibility = 'hidden'
     
     loginButton.addEventListener('click', function(event){
         event.preventDefault()
@@ -31,13 +31,13 @@ function login(){
             please.style.visibility = 'hidden'
             loginForm.style.visibility = 'hidden'
             h1.style.color = 'white'
-            h1.id = "user-welcome"
+            h1.id = 'user-welcome'
             h1.innerText = `Welcome, ${user.username.toUpperCase()}`
             
             loginFormContainer.appendChild(h1)
 
             if(user.username) {
-                stockHeader.style.visibility = "visible"
+                stockHeader.style.visibility = 'visible'
                 searchBar(user)
             }
         })
@@ -61,7 +61,7 @@ class Stock {
 
 
 function searchBar(user){       
-    const div = document.getElementById('search-form-container')
+    const parentDiv = document.getElementById('search-form-container')
     const searchContainer = document.getElementById('search-container')
     const searchForm = document.createElement('form')
     const input = document.createElement('input')
@@ -72,11 +72,11 @@ function searchBar(user){
     submit.setAttribute("value", "Search")
     searchForm.id = "search-form"
     input.id = 'search-item'
-    submit.id = "search-button"
+    submit.id = 'search-button'
 
     searchForm.appendChild(input)
     searchForm.appendChild(submit)
-    div.appendChild(searchForm)
+    parentDiv.appendChild(searchForm)
 
     const searchItem = document.getElementById('search-item')
 
@@ -100,26 +100,25 @@ function searchBar(user){
         fetch(`http://localhost:3000/stocklistings`)
         .then(response => response.json())
         .then(function(data){
-            const obj = data.find(e => e.ticker === searchBar||e.ticker.toLowerCase() === searchBar||e.company === searchBar||e.company.toLowerCase() === searchBar)
+            const obj = data.find(e => e.ticker === searchBar||e.ticker.toLowerCase() === searchBar||e.company === searchBar||e.company.toLowerCase() === searchBar||e.ticker.toUpperCase() === searchBar||e.company === searchBar||e.company.toUpperCase() === searchBar)
             let stock = new Stock(obj)
             showStockListing(stock)
             buyStock(stock, user)
         }).catch(function(){
             if(document.getElementById('not-found')){
-                console.log("hello")
+                
             }
             else {
-                const main = document.querySelector('main')
-                const div = document.getElementById('search-container')
-                const d = document.createElement('div')
+                const parentDiv = document.getElementById('search-container')
+                const d = document.createElement('parentDiv')
                 const p = document.createElement('p')
                 p.id = "not-found"
                 p.innerText = "Stock Not Found!"
                 p.style.color = "white"
             
             
-                div.appendChild(d)
-                div.appendChild(p)
+                parentDiv.appendChild(d)
+                parentDiv.appendChild(p)
             }
         })
     })
@@ -129,12 +128,12 @@ function searchBar(user){
 
 function showStockListing(stock){
     if(document.getElementById('search-info')){
-        console.log('helloooo')
+        
     }
     else {
         const main = document.querySelector('main')
-        const div = document.getElementById('search-container')
-        const d = document.createElement('div')
+        const parentDiv = document.getElementById('search-container')
+        const d = document.createElement('parentDiv')
         const p = document.createElement('p')
         const buyStock = document.createElement('form')
         const input = document.createElement('input')
@@ -152,15 +151,15 @@ function showStockListing(stock){
         submit.setAttribute("type", "submit")
         submit.setAttribute("value", "Buy Stock")
         input.id = 'stock-number'
-        submit.id = "buy-button"
+        submit.id = 'buy-button'
 
         buyStock.appendChild(input)
         buyStock.appendChild(submit)
         
 
-        div.appendChild(d)
-        div.appendChild(p)
-        div.appendChild(buyStock)
+        parentDiv.appendChild(d)
+        parentDiv.appendChild(p)
+        parentDiv.appendChild(buyStock)
     }
 }
 
@@ -179,7 +178,7 @@ function buyStock(stock, user) {
             if(match){
                 const stockNumber = document.getElementById('stock-number').value
                 if (isNaN(stockNumber)||stockNumber ==="") {
-                    console.log("Not A Number!")
+                   
                 }
                 else {
                     let newShares = 0
@@ -209,7 +208,7 @@ function buyStock(stock, user) {
             else {
                 const stockNumber = document.getElementById('stock-number').value
                 if (isNaN(stockNumber)||stockNumber ==="") {
-                    console.log("Not A Number!")
+                   
                 }
                 else {
                 
@@ -243,22 +242,22 @@ function deleteStock(stock){
             
 
 function addStock(stock,user) {
-    const div = document.getElementById('stock-container')
-    const parentD = document.createElement('div')
+    const parentDiv = document.getElementById('stock-container')
+    const div = document.createElement('parentDiv')
     const companyName = document.createElement('h2')
     const h3 = document.createElement('h3')
-    const d = document.createElement('div')
+    const d = document.createElement('parentDiv')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
     
-    parentD.id = `parent-${stock.id}` 
+    div.id = `parent-${stock.id}` 
     companyName.id = `company-name-${stock.id}`
     h3.id = `h3-${stock.id}`  
     d.id = `chartContainer${stock.id}`
     p.id = `text-${stock.id}`
     deleteButton.id = `sell-button-${stock.id}`
 
-    parentD.className = 'parent'
+    div.className = 'parent'
     companyName.className = 'company'
     h3.className = 'current-price'
     d.className = 'chart'
@@ -278,17 +277,17 @@ function addStock(stock,user) {
     companyName.style.color = "white"
     h3.style.color = "white"
 
-    div.appendChild(parentD)
-    parentD.appendChild(companyName)
-    parentD.appendChild(h3)
-    parentD.appendChild(d)
-    parentD.appendChild(d)
-    parentD.appendChild(p)
-    parentD.appendChild(deleteButton)
+    parentDiv.appendChild(div)
+    div.appendChild(companyName)
+    div.appendChild(h3)
+    div.appendChild(d)
+    div.appendChild(d)
+    div.appendChild(p)
+    div.appendChild(deleteButton)
      
     deleteButton.addEventListener('click',function(e){
         e.preventDefault()
-        parentD.parentNode.removeChild(parentD)
+        div.parentNode.removeChild(div)
         p.parentNode.removeChild(p)
         deleteButton.parentNode.removeChild(deleteButton)
         deleteStock(stock)
