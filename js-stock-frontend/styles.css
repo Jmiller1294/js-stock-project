@@ -16,11 +16,11 @@ body {
     text-align: center
 }
 
-#search-container{
+#search-container {
     margin-left: 10px;
 }
     
-#stock-container{
+#stock-container {
     margin: 10px;
     
 }
@@ -38,17 +38,21 @@ body {
     margin-left: 10px;
 }
 
-.parent{
+.parent {
     border-style: outset;
     margin: 5px;
     box-sizing: border-box;   
 }
 
-.company{
+.company {
     margin-left: 10px;
 }
 
-.current-price{
+.current-price {
+    margin-left: 10px;
+}
+
+#profit {
     margin-left: 10px;
 }
 
@@ -66,17 +70,17 @@ body {
     margin-bottom: 5px;
 }
 
-#stock-number{
+#stock-number {
     width: 20px;
 }
 
-#please{
+#please {
     color: white;
     margin-bottom: 0px;
     margin-left: 10px;
 }
 
-#portfolio{
+#portfolio {
     color: white;
     margin-left: 10px;
 }

@@ -80,7 +80,7 @@ class Stock {
             p.id = 'search-info'
             p.innerText = `Ticker: ${this.ticker}
                             Company: ${this.company}
-                            Current Price: $${this.current_price}`
+                            Current Price: $${parseFloat(this.current_price).toFixed(2)}`
             p.style.color = "white"
     
     
@@ -171,10 +171,6 @@ function searchBar(currentUser){
 
 
 
-
-
-
-
 function buyStock(stock, currentUser) {
     const buyButton = document.getElementById('buy-button')
 
@@ -194,8 +190,8 @@ function buyStock(stock, currentUser) {
                     let newShares = 0
                     newShares += (match.shares + parseInt(stockNumber))
                     let marketValue = 0
-                    marketValue += (parseInt(newShares) * parseInt(match.current_price))
-                    let updatedObj = {shares: newShares, market_value: marketValue}
+                    marketValue += (newShares * match.current_price)
+                    let updatedObj = {shares: newShares, market_value: marketValue.toFixed(2)}
                     let updatedShares = Object.assign(match, updatedObj)
                 
 
@@ -208,10 +204,12 @@ function buyStock(stock, currentUser) {
                         })
                         .then(function(){
                             const text = document.getElementById(`text-${match.id}`)
+                            const profit = document.getElementById(`profit`)
                             text.innerText = `Ticker: ${updatedShares.ticker}
-                            Opening Price: $${updatedShares.current_price}
+                            Opening Price: $${parseFloat(updatedShares.current_price).toFixed(2)}
                             Shares: ${updatedShares.shares}
-                            Market Value: $${updatedShares.market_value}` 
+                            Market Value: $${parseFloat(updatedShares.market_value).toFixed(2)}` 
+                            profit.innerHTML = `Profit: $ ${0}`
                         })
                 }   
             }
@@ -221,8 +219,11 @@ function buyStock(stock, currentUser) {
                    
                 }
                 else {
-                
-                    let newObj = {ticker: stock.ticker, company: stock.company, current_price: stock.current_price, shares: stockNumber, market_value: (stockNumber * stock.current_price), user_id: user.id}
+                    let newObj = { ticker: stock.ticker, 
+                                   company: stock.company, 
+                                   current_price: parseFloat(stock.current_price).toFixed(2), 
+                                   shares: stockNumber, market_value: stockNumber * parseFloat(stock.current_price).toFixed(2), 
+                                   user_id: user.id }
                     let newData = Object.assign({}, newObj)
         
                     fetch('http://localhost:3000/stocks', {
@@ -258,6 +259,7 @@ function renderStock(stock) {
     const h3 = document.createElement('h3')
     const d = document.createElement('div')
     const p = document.createElement('p') 
+    const p2 = document.createElement('p')
     const deleteButton = document.createElement('button')
     
     div.id = `parent-${stock.id}` 
@@ -265,6 +267,7 @@ function renderStock(stock) {
     h3.id = `h3-${stock.id}`  
     d.id = `chartContainer${stock.id}`
     p.id = `text-${stock.id}`
+    p2.id = "profit"
     deleteButton.id = `sell-button-${stock.id}`
 
     div.className = 'parent'
@@ -275,9 +278,11 @@ function renderStock(stock) {
     deleteButton.className = 'sell-button'
     
     p.innerText = `Ticker: ${stock.ticker}
-        Opening Price: $${stock.current_price}
+        Opening Price: $${parseFloat(stock.current_price).toFixed(2)}
         Shares: ${stock.shares}
-        Market Value: $${stock.market_value}` 
+        Market Value: $${parseFloat(stock.market_value).toFixed(2)}
+        ` 
+    p2.innerHTML = `Profit: $${0}`
     deleteButton.innerHTML = "Sell All Shares"
     companyName.innerHTML=`${stock.company}`
     h3.innerHTML = `Current Price: $${stock.current_price}`
@@ -285,6 +290,7 @@ function renderStock(stock) {
     d.style = "height: 300px; width:35%;"
     p.style.color = "white"
     companyName.style.color = "white"
+    p2.style.color = "white"
     h3.style.color = "white"
 
     parentDiv.appendChild(div)
@@ -293,6 +299,7 @@ function renderStock(stock) {
     div.appendChild(d)
     div.appendChild(d)
     div.appendChild(p)
+    div.appendChild(p2)
     div.appendChild(deleteButton)
      
     deleteButton.addEventListener('click',function(e){
@@ -340,9 +347,10 @@ function renderChart(stock){
         dataset.push({x: xValue,y: yValue});
 
         const currentPrice = document.getElementById(`h3-${stock.id}`) 
+        const profit = document.getElementById(`profit`)
 
         if (currentPrice){
-            currentPrice.innerHTML = `Current Price: $${yValue.toFixed(2)}`
+            currentPrice.innerHTML = `Current Price: $${yValue.toFixed(2)}` 
         }
 
     chart.render();		
