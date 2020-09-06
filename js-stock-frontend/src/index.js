@@ -21,6 +21,7 @@ function login(){
     
     loginButton.addEventListener('click', function(event){
         event.preventDefault()
+        
         const username = document.getElementById('username-field').value
         usernameObj = {username: username}
 
@@ -39,6 +40,7 @@ function login(){
             please.style.visibility = 'hidden'
             loginForm.style.visibility = 'hidden'
             h1.style.color = 'white'
+            
             h1.id = 'user-welcome'
             h1.innerText = `Welcome, ${user.username.toUpperCase()}`
             
@@ -76,24 +78,21 @@ class Stock {
             const input = document.createElement('input')
             const submit = document.createElement('input')
     
-    
             p.id = 'search-info'
             p.innerText = `Ticker: ${this.ticker}
                             Company: ${this.company}
                             Current Price: $${parseFloat(this.current_price).toFixed(2)}`
             p.style.color = "white"
     
-    
             input.setAttribute("type", "text")
             submit.setAttribute("type", "submit")
             submit.setAttribute("value", "Buy Stock")
             input.id = 'stock-number'
             submit.id = 'buy-button'
-    
+
             buyStock.appendChild(input)
             buyStock.appendChild(submit)
             
-    
             parentDiv.appendChild(p)
             parentDiv.appendChild(buyStock)
         }
@@ -157,10 +156,10 @@ function searchBar(currentUser){
                 const parentDiv = document.getElementById('search-container')
                 const d = document.createElement('parentDiv')
                 const p = document.createElement('p')
+
                 p.id = "not-found"
                 p.innerText = "Stock Not Found!"
                 p.style.color = "white"
-            
             
                 parentDiv.appendChild(d)
                 parentDiv.appendChild(p)
@@ -191,28 +190,29 @@ function buyStock(stock, currentUser) {
                 else {
                     let newShares = 0
                     newShares += (match.shares + parseInt(stockNumber))
+                    
                     let marketValue = 0
                     marketValue += (newShares * match.current_price)
+                    
                     let updatedObj = {shares: newShares, market_value: marketValue.toFixed(2)}
                     let updatedShares = Object.assign(match, updatedObj)
                 
-
                     fetch(`http://localhost:3000/stocks/${match.id}`, {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                            body: JSON.stringify(updatedShares)
-                        })
-                        .then(function(){
-                            const text = document.getElementById(`text-${match.id}`)
-                            const profit = document.getElementById(`profit`)
-                            text.innerText = `Ticker: ${updatedShares.ticker}
-                            Opening Price: $${parseFloat(updatedShares.current_price).toFixed(2)}
-                            Shares: ${updatedShares.shares}
-                            Market Value: $${parseFloat(updatedShares.market_value).toFixed(2)}` 
-                            profit.innerHTML = `Profit: $ ${0}`
-                        })
+                        body: JSON.stringify(updatedShares)
+                    })
+                    .then(function(){
+                        const text = document.getElementById(`text-${match.id}`)
+                        const profit = document.getElementById(`profit`)
+                        text.innerText = `Ticker: ${updatedShares.ticker}
+                        Opening Price: $${parseFloat(updatedShares.current_price).toFixed(2)}
+                        Shares: ${updatedShares.shares}
+                        Market Value: $${parseFloat(updatedShares.market_value).toFixed(2)}` 
+                        profit.innerHTML = `Profit: $ ${0}`
+                    })
                 }   
             }
             else {
