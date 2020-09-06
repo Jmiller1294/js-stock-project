@@ -177,7 +177,7 @@ function buyStock(stock, currentUser) {
     buyButton.addEventListener('click', function(event){
         event.preventDefault()
 
-        alert("Are You sure You want to purchase this stock?")
+        alert("Are you sure you want to purchase this stock?")
 
         fetch(`http://localhost:3000/users/${currentUser.id}`)
         .then(response => response.json())
@@ -354,7 +354,7 @@ function renderChart(stock){
 
         if (currentPrice){
             currentPrice.innerHTML = `Current Price: $${yValue.toFixed(2)}`
-            profit.innerHTML = `Profit Per Share: $ ${(parseFloat(yValue - stock.current_price).toFixed(2) * parseInt(stock.shares))}` 
+            profit.innerHTML = `Profit Per Share: $ ${(parseFloat(yValue - stock.current_price).toFixed(2))}` 
         }
 
     chart.render();		

@@ -33,6 +33,9 @@ body {
 #search-form {
     margin-left: 10px;
 }
+#search-info{
+    font-weight: bold;
+}
 
 #user-welcome {
     margin-left: 10px;
