@@ -7,24 +7,24 @@ js-stock-project is a application that allows you to log in as a user, search fr
 1. Check out the repository
 git@github.com:Jmiller1294/js-stock-project.git
 
-3.Change directory
+2.Change directory
 cd js-stock-backend
 
-2. Install Gems
+3. Install Gems
 bundle install
 
-3. migrate the database and seed database
+4. migrate the database and seed database
 rails db:migrate
 rails db:seed
 
-4. Start the Rails server
+5. Start the Rails server
 You can start the rails server using the command given below: 
 rails s 
 
-5.Change directory
+6.Change directory
 cd js-stock-project/js-stock-frontend
 
-6.Open in browser
+7.Open in browser
 Open index.html
 
 ## Built With
