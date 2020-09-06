@@ -131,9 +131,7 @@ function showStockListing(stock){
         
     }
     else {
-        const main = document.querySelector('main')
         const parentDiv = document.getElementById('search-container')
-        const d = document.createElement('parentDiv')
         const p = document.createElement('p')
         const buyStock = document.createElement('form')
         const input = document.createElement('input')
@@ -157,7 +155,6 @@ function showStockListing(stock){
         buyStock.appendChild(submit)
         
 
-        parentDiv.appendChild(d)
         parentDiv.appendChild(p)
         parentDiv.appendChild(buyStock)
     }
@@ -243,10 +240,10 @@ function deleteStock(stock){
 
 function addStock(stock,user) {
     const parentDiv = document.getElementById('stock-container')
-    const div = document.createElement('parentDiv')
+    const div = document.createElement('div')
     const companyName = document.createElement('h2')
     const h3 = document.createElement('h3')
-    const d = document.createElement('parentDiv')
+    const d = document.createElement('div')
     const p = document.createElement('p') 
     const deleteButton = document.createElement('button')
     
