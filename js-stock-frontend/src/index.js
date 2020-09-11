@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
         login();    
+       
 })
    
 
@@ -36,7 +37,7 @@ function login(){
         .then(function(user){
             let currentUser = new User(user)
             const h1 = document.createElement('h1')
-           
+            
             please.style.visibility = 'hidden'
             loginForm.style.visibility = 'hidden'
             h1.style.color = 'white'
@@ -49,6 +50,7 @@ function login(){
             if(currentUser.username) {
                 stockHeader.style.visibility = 'visible'
                 searchBar(currentUser)
+                renderSortButton()
             }
         })
     
@@ -177,7 +179,6 @@ function buyStock(stock, currentUser) {
         event.preventDefault()
 
         alert("Are you sure you want to purchase this stock?")
-
         fetch(`http://localhost:3000/users/${currentUser.id}`)
         .then(response => response.json())
         .then(function(user){
@@ -255,6 +256,8 @@ function deleteStock(stock){
             
 
 function renderStock(stock) {
+    
+
     const parentDiv = document.getElementById('stock-container')
     const div = document.createElement('div')
     const companyName = document.createElement('h2')
@@ -360,6 +363,46 @@ function renderChart(stock){
     chart.render();		
     };
     setInterval(function(){updateChart()}, 1000); 
+}
+
+
+function renderSortButton() {
+    const portfolio = document.getElementById('sort-container')
+    const button = document.createElement('button')
+    button.id = "sort-button"
+    button.innerText = "Sort Stocks"
+    portfolio.appendChild(button)
+    alphabetize()
+}
+
+function alphabetize() {
+    const sortButton = document.getElementById('sort-button')
+    
+    sortButton.addEventListener('click', function(event){   
+
+    array = []
+    let stocks = document.querySelectorAll(".parent")
+
+        for(let i = 0; i < stocks.length; i++) {
+            array.push(stocks[i])
+        }
+
+    let newArray = array.sort(function(a,b){
+       if (a.firstChild.innerHTML > b.firstChild.innerHTML) {
+            return 1;
+       }
+       if (a.firstChild.innerHTML < b.firstChild.innerHTML) {
+           return -1;
+       }
+    })
+
+    const stockContainer = document.getElementById('stock-container')
+    stockContainer.innerHTML = ""
+
+        for (i = 0; i < newArray.length; i++) {
+        stockContainer.appendChild(newArray[i])
+        }
+    })
 }
 
 
